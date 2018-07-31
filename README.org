@@ -41,7 +41,8 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 #+BEGIN_EXAMPLE
 [ec2-user@ip-172-31-33-176 ~]$ pks --help
 
-The Pivotal Container Service (PKS) CLI is used to create, manage, and delete Kubernetes clusters. To deploy workloads to a Kubernetes cluster created using the PKS CLI, use the Kubernetes CLI, kubectl.
+The Pivotal Container Service (PKS) CLI is used to create, manage, and delete Kubernetes clusters. 
+To deploy workloads to a Kubernetes cluster created using the PKS CLI, use the Kubernetes CLI, kubectl.
 
 Version: 1.1.1-build.8
 
