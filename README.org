@@ -1,9 +1,15 @@
-* PKS CheatSheet
+* PKS CheatSheet                                                     :Tools:
+:PROPERTIES:
+:type:     kubernetes
+:END:
+
+Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-pks, Category: [[https://cheatsheet.dennyzhang.com/category/tools/][tools]]
+
 #+BEGIN_HTML
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
 <a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
-<a href="https://github.com/DennyZhang"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/DennyZhang/cheatsheet-pks-A4"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 
 <br/><br/>
 
@@ -53,7 +59,7 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 
  Use "pks [command] --help" for more information about a command.
  #+END_EXAMPLE
-- More Resources
+** More Resources
 https://github.com/pks-tips/tips
 
 License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_license.txt][MIT License]].
@@ -65,18 +71,18 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 <a href="https://github.com/DennyZhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img align="bottom" src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
 #+END_HTML
-** org-mode configuration                                          :noexport:
- #+STARTUP: overview customtime noalign logdone showall
- #+TITLE:  PKS CheatSheet
- #+DESCRIPTION: 
- #+KEYWORDS: 
- #+AUTHOR: Denny Zhang
- #+EMAIL:  denny@dennyzhang.com
- #+TAGS: noexport(n)
- #+PRIORITIES: A D C
- #+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
- #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
- #+EXPORT_EXCLUDE_TAGS: exclude noexport
- #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
- #+LINK_UP:   
- #+LINK_HOME: 
+* org-mode configuration                                           :noexport:
+#+STARTUP: overview customtime noalign logdone showall
+#+TITLE:  PKS CheatSheet
+#+DESCRIPTION: 
+#+KEYWORDS: 
+#+AUTHOR: Denny Zhang
+#+EMAIL:  denny@dennyzhang.com
+#+TAGS: noexport(n)
+#+PRIORITIES: A D C
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_EXCLUDE_TAGS: exclude noexport
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+LINK_UP:   
+#+LINK_HOME: 
