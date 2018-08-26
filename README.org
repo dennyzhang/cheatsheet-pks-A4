@@ -30,6 +30,12 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Set kubectl context                | =kubectl config use-context <cluster_name>=          |
 | Login                              | =pks login -a <domain> -u <username> -p <passwd> -k= |
 
+** Resource Link
+| Name                                          | Command                                                |
+|-----------------------------------------------+--------------------------------------------------------|
+| Pivotal Container Service (PKS) Documentation | https://docs.pivotal.io/runtimes/pks/1-1/index.html    |
+| PKS Concepts                                  | https://docs.pivotal.io/runtimes/pks/1-1/concepts.html |
+
 ** Online Help Usage
  #+BEGIN_EXAMPLE
  [ec2-user@ip-172-31-33-176 ~]$ pks --help
@@ -74,7 +80,6 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+END_HTML
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
-#+TITLE:  PKS CheatSheet
 #+DESCRIPTION: 
 #+KEYWORDS: 
 #+AUTHOR: Denny Zhang
