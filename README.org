@@ -26,12 +26,15 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 
 ** Basic
 
-| Name                               | Command                                              |
-|------------------------------------+------------------------------------------------------|
-| List all pks clusters              | =pks clusters=                                       |
-| Get cluster credential for kubectl | =pks get-credentials <cluster_name>=                 |
-| Set kubectl context                | =kubectl config use-context <cluster_name>=          |
-| Login                              | =pks login -a <domain> -u <username> -p <passwd> -k= |
+| Name                               | Command                                                                                         |
+|------------------------------------+-------------------------------------------------------------------------------------------------|
+| Crreate k8s cluster                | [[https://docs.pivotal.io/runtimes/pks/1-1/create-cluster.html][link: Create a Kubernetes Cluster]]                                                               |
+| List all pks clusters              | =pks clusters=                                                                                  |
+| Create cluster                     | =pks create-cluster cluster1 --external-hostname cluster1.pks.com --plan <$plan> --num-nodes 2= |
+| Get cluster credential for kubectl | =pks get-credentials <Cluster_name>=                                                            |
+| Set kubectl context                | =kubectl config use-context <cluster_name>=                                                     |
+| Login                              | =pks login -a <api.test.com> -u <username> -p <passwd> -k=                                      |
+| List all available plans           | =pks plans=                                                                                     |
 
 ** Resource Link
 | Name                                          | Command                                                |
