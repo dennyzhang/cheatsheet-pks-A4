@@ -26,19 +26,19 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 
 ** Basic
 
-| Name                                          | Command                                                                                            |
-|-----------------------------------------------+----------------------------------------------------------------------------------------------------|
-| Pivotal Container Service (PKS) Documentation | https://docs.pivotal.io/runtimes/pks/1-1/index.html                                                |
-| PKS Concepts                                  | https://docs.pivotal.io/runtimes/pks/1-1/concepts.html                                             |
-| Crreate k8s cluster                           | [[https://docs.pivotal.io/runtimes/pks/1-1/create-cluster.html][link: Create a Kubernetes Cluster]]                                                                  |
-| List all pks clusters                         | =pks clusters=                                                                                     |
-| Create cluster                                | =pks create-cluster cluster1 --external-hostname cluster1.pks.com --plan <$plan> --num-nodes 2=    |
-| Check cluster status                          | =pks cluster cluster1=                                                                             |
-| Get cluster credential for kubectl            | =pks get-credentials <Cluster_name>=                                                               |
-| Set kubectl context                           | =kubectl config use-context <cluster_name>=                                                        |
-| Login                                         | =pks login -a <api.test.com> -u <username> -p <passwd> -k=                                         |
-| Login                                         | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
-| List all available plans                      | =pks plans=                                                                                        |
+| Name                               | Command                                                                                            |
+|------------------------------------+----------------------------------------------------------------------------------------------------|
+| Links                              | [[https://docs.pivotal.io/runtimes/pks/1-1/index.html][Pivotal Container Service (PKS) Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-1/concepts.html][PKS Concepts]]                                        |
+| Create k8s cluster                 | [[https://docs.pivotal.io/runtimes/pks/1-1/create-cluster.html][link: Create a Kubernetes Cluster]]                                                                  |
+| Air-gapped deployments             | No incoming and outgoing traffic during the PKS deployment                                         |
+| List all pks clusters              | =pks clusters=                                                                                     |
+| Create cluster                     | =pks create-cluster cluster1 --external-hostname cluster1.pks.com --plan <$plan> --num-nodes 2=    |
+| Check cluster status               | =pks cluster cluster1=                                                                             |
+| Get cluster credential for kubectl | =pks get-credentials <Cluster_name>=                                                               |
+| Set kubectl context                | =kubectl config use-context <cluster_name>=                                                        |
+| Login                              | =pks login -a <api.test.com> -u <username> -p <passwd> -k=                                         |
+| Login                              | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
+| List all available plans           | =pks plans=                                                                                        |
 
 ** Online Help Usage
  #+BEGIN_EXAMPLE
