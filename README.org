@@ -16,9 +16,8 @@
 <a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
 #+END_HTML
 
-- PDF Link: [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/cheatsheet-pks-A4.pdf][cheatsheet-pks-A4.pdf]]
+- PDF Link: [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/cheatsheet-pks-A4.pdf][cheatsheet-pks-A4.pdf]], Category: [[https://cheatsheet.dennyzhang.com/category/tools/][tools]]
 - Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4
-- Category: [[https://cheatsheet.dennyzhang.com/category/tools/][tools]]
 
 File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-pks-A4][this repo]].
 
@@ -36,12 +35,17 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Check cluster status               | =pks cluster cluster1=                                                                             |
 | Get cluster credential for kubectl | =pks get-credentials <Cluster_name>=                                                               |
 | Set kubectl context                | =kubectl config use-context <cluster_name>=                                                        |
-| Login                              | =pks login -a <api.test.com> -u <username> -p <passwd> -k=                                         |
-| Login                              | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
 | List all available plans           | =pks plans=                                                                                        |
 
+** Login
+| Name                              | Command                                                                                            |
+|-----------------------------------+----------------------------------------------------------------------------------------------------|
+| Login                             | =pks login -a <api.test.com> -u <username> -p <passwd> -k=                                         |
+| Login                             | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
+| Run bosh command in OpsManager VM | Get bosh crediential from Ops Manager                                                              |
+
 ** Online Help Usage
- #+BEGIN_EXAMPLE
+#+BEGIN_EXAMPLE
  [ec2-user@ip-172-31-33-176 ~]$ pks --help
 
  The Pivotal Container Service (PKS) CLI is used to create, manage, and delete Kubernetes clusters. 
@@ -69,7 +73,7 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
        --version   version for pks
 
  Use "pks [command] --help" for more information about a command.
- #+END_EXAMPLE
+#+END_EXAMPLE
 ** More Resources
 https://github.com/pks-tips/tips
 
