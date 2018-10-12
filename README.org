@@ -1,6 +1,6 @@
 * PKS CheatSheet                                                     :Tools:
 :PROPERTIES:
-:type:     kubernetes
+:type:     kubernetes, pks, vmware
 :export_file_name: cheatsheet-pks-A4.pdf
 :END:
 
@@ -22,6 +22,8 @@
 File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-pks-A4][this repo]].
 
 See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
+
+Related post: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-concourse-A4][Concourse CheatSheet]]
 
 ** Concepts
 | Name                                   | Command                                                                            |
@@ -61,6 +63,32 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Run bosh command | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands                    |
 | Default roles    | pks.clusters.manage, pks.clusters.admin                                                            |
 
+** Process List In PKS Control Panel VM
+| Name                      | Summary                                       |
+|---------------------------+-----------------------------------------------|
+| Get process list          | ssh to the vm from bosh, then =monit summary= |
+| pks-api                   |                                               |
+| broker                    |                                               |
+| pks-nsx-t-osb-proxy       |                                               |
+| mariadb_ctrl              |                                               |
+| galera-healthcheck        |                                               |
+| gra-log-purger-executable |                                               |
+| cluster_health_logger     |                                               |
+| uaa                       |                                               |
+| telemetry                 |                                               |
+| event-emitter             |                                               |
+| bosh-dns                  |                                               |
+| bosh-dns-resolvconf       |                                               |
+| bosh-dns-healthcheck      |                                               |
+
+** Process List In PKS Kubernetes Master VM
+| Name | Summary |
+|------+---------|
+|      |         |
+** Process List In PKS Kubernetes Worker VM
+| Name | Summary |
+|------+---------|
+|      |         |
 ** Online Help Usage
 #+BEGIN_EXAMPLE
  [ec2-user@ip-172-31-33-176 ~]$ pks --help
@@ -128,3 +156,4 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:   
 #+LINK_HOME: 
+* TODO PKS: How to get pks version, once I have login to pks vm?   :noexport:
