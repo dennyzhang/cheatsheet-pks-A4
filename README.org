@@ -24,76 +24,83 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 
 Related post: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-concourse-A4][Concourse CheatSheet]]
-
-** Concepts
-| Name                                   | Command                                                                            |
-|----------------------------------------+------------------------------------------------------------------------------------|
-| CFCR (Cloud Foundry Container Runtime) | [[https://docs-cfcr.cfapps.io/overview/what-is-cfcr/][link: what is cfcr]] CFCR aims to deplo and manage fleets of Kubernetes clusters     |
-| Kubo                                   | [[https://docs-cfcr.cfapps.io/overview/release-notes/][link: cfcr]] Old name of CFCR                                                        |
-| Bosh                                   | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                              |
-| Tile                                   | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                              |
-| Ops Manager                            | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                              |
-| osb (on-demand-service-broker)         |                                                                                    |
-| ncp (NSX-T container plugin CNI)       | Help to create pod networks in PKS k8s clusters [[https://cheatsheet.dennyzhang.com/cheatsheet-networking-A4][link: CheatSheet: Cloud Networking]] |
-
-** Reference
-| Name              | Command                                                     |
-|-------------------+-------------------------------------------------------------|
-| PKS Release Notes | https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html |
-| Managing PKS      | https://docs.pivotal.io/runtimes/pks/1-2/managing.html      |
-
-** Basic
-| Name                               | Command                                                                                            |
-|------------------------------------+----------------------------------------------------------------------------------------------------|
-| Links                              | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][Pivotal Container Service (PKS) Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]]                                        |
-| Create k8s cluster                 | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][link: Create a Kubernetes Cluster]]                                                                  |
-| Air-gapped deployments             | No incoming and outgoing traffic during the PKS deployment                                         |
-| List all pks clusters              | =pks clusters=                                                                                     |
-| Create cluster                     | =pks create-cluster cluster1 --external-hostname cluster1.pks.com --plan "$plan" --num-nodes 2=    |
-| Check cluster status               | =pks cluster cluster1=                                                                             |
-| Get cluster credential for kubectl | =pks get-credentials <Cluster_name>=                                                               |
-| Set kubectl context                | =kubectl config use-context <cluster_name>=                                                        |
-| List all available plans           | =pks plans=                                                                                        |
-
-** Users Management
-| Name             | Command                                                                                            |
-|------------------+----------------------------------------------------------------------------------------------------|
-| Login            | =pks login -a <api.test.com> -u <username> -p <passwd> -k= [[https://docs.pivotal.io/runtimes/pks/1-0/manage-users.html][link: Manage Users in UAA]]               |
-| Login            | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
-| Run bosh command | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands                    |
-| Default roles    | pks.clusters.manage, pks.clusters.admin                                                            |
-
-** Process List In PKS Control Panel VM
-| Name                      | Summary                                       |
-|---------------------------+-----------------------------------------------|
-| Get process list          | ssh to the vm from bosh, then =monit summary= |
-| pks-api                   |                                               |
-| broker                    |                                               |
-| pks-nsx-t-osb-proxy       |                                               |
-| mariadb_ctrl              |                                               |
-| galera-healthcheck        |                                               |
-| gra-log-purger-executable |                                               |
-| cluster_health_logger     |                                               |
-| uaa                       |                                               |
-| telemetry                 |                                               |
-| event-emitter             |                                               |
-| bosh-dns                  |                                               |
-| bosh-dns-resolvconf       |                                               |
-| bosh-dns-healthcheck      |                                               |
-
-** Process List In PKS Kubernetes Master VM
-| Name | Summary |
-|------+---------|
-|      |         |
-** Process List In PKS Kubernetes Worker VM
-| Name | Summary |
-|------+---------|
-|      |         |
+** PKS Basic
+| Name                               | Command                                                                                                     |
+|------------------------------------+-------------------------------------------------------------------------------------------------------------|
+| Reference                          | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]]                                    |
+| CFCR/Kubo                          | CFCR(Cloud Foundry Container Runtime) aims to deplo and manage fleets of k8s clusters. Kubo is the old name |
+| Bosh                               | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                       |
+| Tile                               | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                       |
+| Ops Manager                        | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                       |
+| osb (on-demand-service-broker)     |                                                                                                             |
+| ncp (NSX-T container plugin CNI)   | Help to create pod networks in PKS k8s clusters [[https://cheatsheet.dennyzhang.com/cheatsheet-networking-A4][link: CheatSheet: Cloud Networking]]                          |
+| Create k8s cluster                 | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][link: Create a Kubernetes Cluster]]                                                                           |
+| Air-gapped deployments             | No incoming and outgoing traffic during the PKS deployment                                                  |
+** PKS cli
+| Name                           | Command                                                                                            |
+|--------------------------------+----------------------------------------------------------------------------------------------------|
+| List all pks clusters          | =pks clusters=                                                                                     |
+| Create cluster                 | =pks create-cluster cluster1 --external-hostname cluster1.pks.com --plan "$plan" --num-nodes 2=    |
+| Check cluster status           | =pks cluster cluster1=                                                                             |
+| Get cluster kubectl credential | =pks get-credentials <cluster_name>=                                                               |
+| Set kubectl context            | =kubectl config use-context <cluster_name>=                                                        |
+| List all available plans       | =pks plans=                                                                                        |
+| Login                          | =pks login -a <api.test.com> -u <username> -p <passwd> -k= [[https://docs.pivotal.io/runtimes/pks/1-0/manage-users.html][link: Manage Users in UAA]]               |
+| Login                          | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
+| Run bosh command               | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands                    |
+| Default roles                  | pks.clusters.manage, pks.clusters.admin                                                            |
+** Process List In PKS Control Panel
+| Name                        | Summary                                          |
+|-----------------------------+--------------------------------------------------|
+| Get process list            | ssh to the pks api vm, then =sudo monit summary= |
+| =pks-api=                   |                                                  |
+| =broker=                    |                                                  |
+| =pks-nsx-t-osb-proxy=       |                                                  |
+| =mariadb_ctrl=              |                                                  |
+| =galera-healthcheck=        |                                                  |
+| =gra-log-purger-executable= |                                                  |
+| =cluster_health_logger=     |                                                  |
+| =uaa=                       |                                                  |
+| =telemetry=                 |                                                  |
+| =event-emitter=             |                                                  |
+| =bosh-dns=                  |                                                  |
+| =bosh-dns-resolvconf=       |                                                  |
+| =bosh-dns-healthcheck=      |                                                  |
+** Process List In K8S Master VM
+| Name                              | Summary                                         |
+|-----------------------------------+-------------------------------------------------|
+| Get process list                  | ssh to k8s master vm, then =sudo monit summary= |
+| =kube-apiserver=                  |                                                 |
+| =kube-controller-manager=         |                                                 |
+| =kube-scheduler=                  |                                                 |
+| =etcd=                            |                                                 |
+| =blackbox=                        |                                                 |
+| =ncp=                             |                                                 |
+| =bosh-dns=                        |                                                 |
+| =bosh-dns-resolvconf=             |                                                 |
+| =bosh-dns-healthcheck=            |                                                 |
+| =pks-helpers-bosh-dns-resolvconf= |                                                 |
+** Process List In K8S Worker VM
+| Name                              | Summary                                             |
+|-----------------------------------+-----------------------------------------------------|
+| Get process list                  | ssh to the k8s worker vm, then =sudo monit summary= |
+| =docker=                          |                                                     |
+| =kubelet=                         |                                                     |
+| =kube-proxy=                      |                                                     |
+| =blackbox=                        |                                                     |
+| =nsx-node-agent=                  |                                                     |
+| =ovsdb-server=                    |                                                     |
+| =ovs-vswitchd=                    |                                                     |
+| =nsx-kube-proxy=                  |                                                     |
+| =bosh-dns=                        |                                                     |
+| =bosh-dns-resolvconf=             |                                                     |
+| =bosh-dns-healthcheck=            |                                                     |
+| =pks-helpers-bosh-dns-resolvconf= |                                                     |
 ** Online Help Usage
 #+BEGIN_EXAMPLE
  [ec2-user@ip-172-31-33-176 ~]$ pks --help
 
- The Pivotal Container Service (PKS) CLI is used to create, manage, and delete Kubernetes clusters. 
+ The Pivotal Container Service (PKS) CLI is used to create, manage, and delete Kubernetes clusters.
  To deploy workloads to a Kubernetes cluster created using the PKS CLI, use the Kubernetes CLI, kubectl.
 
  Version: 1.1.1-build.8
@@ -133,8 +140,8 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+END_HTML
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
-#+DESCRIPTION: 
-#+KEYWORDS: 
+#+DESCRIPTION:
+#+KEYWORDS:
 #+LATEX_HEADER: \usepackage[margin=0.6in]{geometry}
 #+LaTeX_CLASS_OPTIONS: [8pt]
 #+LATEX_HEADER: \usepackage[english]{babel}
@@ -154,6 +161,26 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+EXPORT_EXCLUDE_TAGS: exclude noexport
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
-#+LINK_UP:   
-#+LINK_HOME: 
-* TODO PKS: How to get pks version, once I have login to pks vm?   :noexport:
+#+LINK_UP:
+#+LINK_HOME:
+* TODO PKS: How to get pks version for the server side, once I have login to pks vm? :noexport:
+* TODO procedure to setup pks                                      :noexport:
+create uaac user
+
+pks create cluster
+
+then get the ip to update /etc/hosts
+* TODO ssh to k8s vms                                              :noexport:
+- delete nat rule
+- ssh to ops manager as a bastin
+  ssh ubuntu@30.0.0.5
+  get bosh credential
+  bosh ssh to vm
+* TODO uaac token: access token vs refresh token                   :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO manually deploy pks tile: export configuration              :noexport:
+* TODO k8s upgrade procedure                                       :noexport:
+** How HA model works for the upgrade of multiple-master cluster
+** When PKS recreates worker nodes, the upgrade runs on a single VM at a time.
+** How fast the upgrade process will finish? 
+* TODO add/remove worker vms                                       :noexport:
