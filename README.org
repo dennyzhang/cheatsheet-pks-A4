@@ -47,29 +47,29 @@ Related post: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh Cheat
 | List all available plans       | =pks plans=                                                                                        |
 | Login                          | =pks login -a <api.test.com> -u <username> -p <passwd> -k= [[https://docs.pivotal.io/runtimes/pks/1-0/manage-users.html][link: Manage Users in UAA]]               |
 | Login                          | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
+| Default roles                  | =pks.clusters.manage=, =pks.clusters.admin=                                                        |
 | Run bosh command               | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands                    |
-| Default roles                  | pks.clusters.manage, pks.clusters.admin                                                            |
-** Process List In PKS Control Panel
-| Name                        | Summary                                          |
-|-----------------------------+--------------------------------------------------|
-| Get process list            | ssh to the pks api vm, then =sudo monit summary= |
-| =pks-api=                   |                                                  |
-| =broker=                    |                                                  |
-| =pks-nsx-t-osb-proxy=       |                                                  |
-| =mariadb_ctrl=              |                                                  |
-| =galera-healthcheck=        |                                                  |
-| =gra-log-purger-executable= |                                                  |
-| =cluster_health_logger=     |                                                  |
-| =uaa=                       |                                                  |
-| =telemetry=                 |                                                  |
-| =event-emitter=             |                                                  |
-| =bosh-dns=                  |                                                  |
-| =bosh-dns-resolvconf=       |                                                  |
-| =bosh-dns-healthcheck=      |                                                  |
-** Process List In K8S Master VM
+** Default Process List In PKS Control Panel
+| Name                          | Summary                                          |
+|-------------------------------+--------------------------------------------------|
+| Get process list in pks 1.2.0 | ssh to the pks api vm, then =sudo monit summary= |
+| =pks-api=                     |                                                  |
+| =broker=                      |                                                  |
+| =pks-nsx-t-osb-proxy=         |                                                  |
+| =mariadb_ctrl=                |                                                  |
+| =galera-healthcheck=          |                                                  |
+| =gra-log-purger-executable=   |                                                  |
+| =cluster_health_logger=       |                                                  |
+| =uaa=                         |                                                  |
+| =telemetry=                   |                                                  |
+| =event-emitter=               |                                                  |
+| =bosh-dns=                    |                                                  |
+| =bosh-dns-resolvconf=         |                                                  |
+| =bosh-dns-healthcheck=        |                                                  |
+** Default Process List In K8S Master VM
 | Name                              | Summary                                         |
 |-----------------------------------+-------------------------------------------------|
-| Get process list                  | ssh to k8s master vm, then =sudo monit summary= |
+| Get process list in pks 1.2.0     | ssh to k8s master vm, then =sudo monit summary= |
 | =kube-apiserver=                  |                                                 |
 | =kube-controller-manager=         |                                                 |
 | =kube-scheduler=                  |                                                 |
@@ -80,10 +80,10 @@ Related post: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh Cheat
 | =bosh-dns-resolvconf=             |                                                 |
 | =bosh-dns-healthcheck=            |                                                 |
 | =pks-helpers-bosh-dns-resolvconf= |                                                 |
-** Process List In K8S Worker VM
+** Default Process List In K8S Worker VM
 | Name                              | Summary                                             |
 |-----------------------------------+-----------------------------------------------------|
-| Get process list                  | ssh to the k8s worker vm, then =sudo monit summary= |
+| Get process list  in pks 1.2.0    | ssh to the k8s worker vm, then =sudo monit summary= |
 | =docker=                          |                                                     |
 | =kubelet=                         |                                                     |
 | =kube-proxy=                      |                                                     |
