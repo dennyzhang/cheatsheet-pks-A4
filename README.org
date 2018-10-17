@@ -51,7 +51,7 @@ Related post: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh Cheat
 | Default roles                  | =pks.clusters.manage=, =pks.clusters.admin=                                                        |
 | Run bosh command               | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands                    |
 
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks_highlevel.png
+https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png
 ** Deployment Diagram
 | Name                              | Command |
 |-----------------------------------+---------|
