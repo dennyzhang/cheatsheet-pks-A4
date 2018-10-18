@@ -1,4 +1,4 @@
-* PKS CheatSheet                                                     :Tools:
+* PKS CheatSheet                                                     :VMware:
 :PROPERTIES:
 :type:     kubernetes, pks, vmware
 :export_file_name: cheatsheet-pks-A4.pdf
@@ -25,18 +25,21 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 
 Related post: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Tile CheatSheet]]
 ** PKS Basic
-| Name                             | Command                                                                                                     |
-|----------------------------------+-------------------------------------------------------------------------------------------------------------|
-| YouTube Series For PKS           | [[https://www.youtube.com/playlist?list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][Pivotal Container Service (PKS) Demos and Webcasts]]                                                          |
-| Reference                        | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]]                                    |
-| CFCR/Kubo                        | CFCR(Cloud Foundry Container Runtime) aims to deplo and manage fleets of k8s clusters. Kubo is the old name |
-| Bosh                             | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                       |
-| Tile                             | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                       |
-| Ops Manager                      | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                       |
-| osb (on-demand-service-broker)   |                                                                                                             |
-| ncp (NSX-T container plugin CNI) | Help to create pod networks in PKS k8s clusters [[https://cheatsheet.dennyzhang.com/cheatsheet-networking-A4][link: CheatSheet: Cloud Networking]]                          |
-| Create k8s cluster               | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][link: Create a Kubernetes Cluster]]                                                                           |
-| Air-gapped deployments           | No incoming and outgoing traffic during the PKS deployment                                                  |
+| Name                             | Command                                                                                                  |
+|----------------------------------+----------------------------------------------------------------------------------------------------------|
+| YouTube Series For PKS           | [[https://www.youtube.com/playlist?list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][Pivotal Container Service (PKS) Demos and Webcasts]]                                                       |
+| Reference                        | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]]                                 |
+| CFCR/Kubo                        | CFCR(Cloud Foundry Container Runtime) aims to deploy/manage fleets of k8s clusters. Kubo is the old name |
+| Bosh                             | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                    |
+| Tile                             | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                    |
+| Ops Manager                      | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                    |
+| osb (on-demand-service-broker)   |                                                                                                          |
+| ncp (NSX-T container plugin CNI) | Help to create pod networks in PKS k8s clusters [[https://cheatsheet.dennyzhang.com/cheatsheet-networking-A4][link: CheatSheet: Cloud Networking]]                       |
+| Create k8s cluster               | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][link: Create a Kubernetes Cluster]]                                                                        |
+| Air-gapped deployments           | No incoming and outgoing traffic during the PKS deployment                                               |
+| Log files in pks vms             | =/var/vcap/sys/log=                                                                                      |
+| PKS trouble shooting             | [[https://docs.pivotal.io/pivotalcf/2-3/customizing/troubleshooting-diagnostics.html][link: PKS Troubleshooting and Diagnostics]]                                                                |
+https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png
 ** PKS cli
 | Name                           | Command                                                                                            |
 |--------------------------------+----------------------------------------------------------------------------------------------------|
@@ -50,8 +53,6 @@ Related post: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh Cheat
 | Login                          | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
 | Default roles                  | =pks.clusters.manage=, =pks.clusters.admin=                                                        |
 | Run bosh command               | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands                    |
-
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png
 ** Deployment Diagram
 | Name                              | Command |
 |-----------------------------------+---------|
@@ -3059,6 +3060,8 @@ Tile: jobs/upgrade-all-service-instances.yml
 * TODO pks scenario: once we have login to jumpbox, what command to run in order to run bosh commands? :noexport:
 export http_proxy=http://10.160.201.176:80
 * TODO pks scenario: once we have login to jumpbox, what command to run, in order to pks cluster command? :noexport:
+* TODO pks scenario: nats vs no-nats                               :noexport:
+* TODO pks scenario: delete pks tile                               :noexport:
 * TODO why I have two deployments in pks                           :noexport:
 #+BEGIN_EXAMPLE
 ubuntu@opsman:~$ bosh deployments
@@ -3102,3 +3105,71 @@ service-instance_16d226e4-9f51-4bb9-92ec-6a86cc55ec6c  bosh-dns/1.6.0           
 Succeeded
 ubuntu@opsman:~$ 
 #+END_EXAMPLE
+* TODO [#A] Blog: Implmenet Kubernetes As a service                :noexport:
+** HA design
+- UAA/PKS API mysql HA
+- UAA is currently a SPOF (Single Point of Failure)
+** Operation for part of the infra, instead of the whole
+- Upgrade for only selective k8s clusters, instead of all clusters
+- Within one k8s cluster, not all machines are using the same machine flavor
+- Mixed kubernetes versions
+** Support bigger scale & limits
+- kubernetes clusters with more than 50 worker vms
+- nsx-t support how many containers, multiple T0-router
+** Kubernetes federations
+- Alana needs to create Logical **_Groups_** of Codys so he can be assigned to objects. (**_PKS Tenancy_**)
+- The PKS API Needs a common Interface into the K8s API of all PKS Clusters
+** Security
+- Use UAA to secure kubeconfig
+- harbor to sign and scan docker images
+- nsx-t support https workload
+- Kubeconfig files should not allow Naomi to escalate privileges on k8s cluster (hostPath)
+- [Untrusted Cluster] Alana's credentials are protected from access from non intended users
+** Reconfigure
+- Cody can migrate across plans
+** Customization
+- Alana can define **_Custom CIDRs for K8s Pods and Service Networks_**
+- Cody wants to be able to **_Customize K8s Cluster Config_**
+** Segragation
+- pks quota system
+** Cleanup & Scale down
+- scale down k8s worker vm
+- When I delete, do the cleanup: wavefront deletion
+- delete problematic k8s clusters
+** Trouble shooting toolkit
+- Alana can run **_Smoketests_** to determine if their install and/or upgrade of PKS went successfully
+- CFCR users are able to ensure that the cluster is in a healthy state after a deployment/upgrade
+- Cody can run a health check to make sure his cluster is functional
+- Cluster Owners want to assure cluster availability during an upgrade of the cluster
+** Performance tunning
+- More parellel: Alana can upgrade clusters in parallel (Individual cluster upgrade) or faster
+* TODO [#A] Trade-off PKS has made, compared GKE                   :noexport:
+** Don't support mixed version in one k8s cluster
+- different hardware: machine flavor
+- different software: kubernetes client version
+** Don't support downgrade for minor version
+- From ops manager: tile version need to keep going up. In GKE, we can downgrade to old minor version
+** Multi-cloud: doesn't mean support homegerous providers
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO [#A] Blog: Deep Dive Into PKS login process                 :noexport:
+** Scenario: How to run bosh command
+** Scenario: How to run pks command
+** Scenario: How to run kubectl command
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
+** bosh release + kubo vs PKS tile
+** jumpbox VM vs OpsManager VM
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
+** where I can find pks-api:8443?
+https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
+** align with the official documents link
+** TODO "bosh vms" runs into certificate problem: not good in jumpbox, but good in ops manager vm
+ #+BEGIN_EXAMPLE
+ kubo@jumper:~$ alias bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=O_uatb9Qj9rctkq3vG_y1WQ9HH-A5WMZ BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=30.0.0.11 bosh "
+ kubo@jumper:~$ bosh vms
+ Fetching info:
+   Performing request GET 'https://30.0.0.11:25555/info':
+     Performing GET request:
+       Retry: Get https://30.0.0.11:25555/info: x509: certificate signed by unknown authority
+
+ Exit code 1
+ #+END_EXAMPLE
