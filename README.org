@@ -27,18 +27,17 @@ Related post: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh Cheat
 ** PKS Basic
 | Name                             | Command                                                                                                  |
 |----------------------------------+----------------------------------------------------------------------------------------------------------|
-| YouTube Series For PKS           | [[https://www.youtube.com/playlist?list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][Pivotal Container Service (PKS) Demos and Webcasts]]                                                       |
-| Reference                        | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]]                                 |
+| YouTube: PKS overview            | [[https://www.youtube.com/watch?v=d_NuJ7skpuY&index=19&list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: Webcast - Deploy and Manage Enterprise Kubernetes with VMware Pivotal Container Service (PKS))]]  |
+| YouTube: Series For PKS          | [[https://www.youtube.com/playlist?list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][Pivotal Container Service (PKS) Demos and Webcasts]]                                                       |
 | CFCR/Kubo                        | CFCR(Cloud Foundry Container Runtime) aims to deploy/manage fleets of k8s clusters. Kubo is the old name |
-| Bosh                             | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                    |
-| Tile                             | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                    |
-| Ops Manager                      | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                    |
+| Bosh, tile, ops manager          | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][link: BOSH CHEATSHEET]]                                                                                    |
 | osb (on-demand-service-broker)   |                                                                                                          |
 | ncp (NSX-T container plugin CNI) | Help to create pod networks in PKS k8s clusters [[https://cheatsheet.dennyzhang.com/cheatsheet-networking-A4][link: CheatSheet: Cloud Networking]]                       |
 | Create k8s cluster               | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][link: Create a Kubernetes Cluster]]                                                                        |
 | Air-gapped deployments           | No incoming and outgoing traffic during the PKS deployment                                               |
 | Log files in pks vms             | =/var/vcap/sys/log=                                                                                      |
-| PKS trouble shooting             | [[https://docs.pivotal.io/pivotalcf/2-3/customizing/troubleshooting-diagnostics.html][link: PKS Troubleshooting and Diagnostics]]                                                                |
+| Reference                        | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]]                                 |
+| Reference                        | [[https://docs.pivotal.io/pivotalcf/2-3/customizing/troubleshooting-diagnostics.html][link: PKS Troubleshooting and Diagnostics]]                                                                |
 https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png
 ** PKS cli
 | Name                           | Command                                                                                            |
@@ -54,6 +53,7 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 | Default roles                  | =pks.clusters.manage=, =pks.clusters.admin=                                                        |
 | Run bosh command               | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands                    |
 ** Deployment Diagram
+https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-deployment.png
 | Name                              | Command |
 |-----------------------------------+---------|
 | PKS API server vm                 |         |
@@ -3173,3 +3173,5 @@ https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
 
  Exit code 1
  #+END_EXAMPLE
+* TODO scenario: Get external access for my pks cluster env        :noexport:
+* TODO pks resize will get the plan inconsistent                   :noexport:
