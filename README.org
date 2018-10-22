@@ -90,9 +90,9 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 | Build-in process in k8s worker vm | See below       |
 https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-deployment.png
 ** Deployment with NSX-T + NAT
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/nsxt-topology-nat.png
+https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-nat.png
 ** Deployment with NSX-T + No-NAT
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/nsxt-topology-no-nat-virtual-switch.png
+https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-no-nat-virtual-switch.png
 ** PKS footprint: in control panel
 | Name                          | Summary                                          |
 |-------------------------------+--------------------------------------------------|
