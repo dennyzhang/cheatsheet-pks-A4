@@ -30,7 +30,7 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Reference | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]]           |
 | Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Tile CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-uaa-A4][UAA CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][PKS CheatSheet]]                   |
 
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png
+[[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png]]
 ** Key Components
 | Name                          | Command                                                                  |
 |-------------------------------+--------------------------------------------------------------------------|
@@ -43,7 +43,7 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 ** PKS Scenarios
 | Name                                              | Summary                                                                         |
 |---------------------------------------------------+---------------------------------------------------------------------------------|
-| How PKS supports k8s master HA                    | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/163fd88ee84db8adcc43dc33f7355db5b7aab7aa/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]]                                 |
+| How PKS supports k8s master HA                    | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/60ce4836faa06a0de6781ec2ce1a0c34a4ea35f2/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]]                                 |
 | PKS admin login to bosh for additional operations | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands |
 | Workflow of how PKS creates a k8s cluster         | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]                                               |
 | Deployment for env without internet               | Enforce air-gapped deployments                                                  |
@@ -59,11 +59,11 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 ** PKS Challenges
 | Name                            | Command                                                                      |
 |---------------------------------+------------------------------------------------------------------------------|
-| Tile & OpsManager is not agile  | It slows down everything. The development, testing and deployment.           |
-| UX of PKS CLI                   | The usage of pks cli could be more intuitive                                 |
-| Extend PKS API layer            | Easy to add more functionalities for PKS admins                              |
-| Improve PKS control panel HA    | Online rolling upgrade for opsmanager, uaa, pks api, etc                     |
 | Faster for typical use cases    | Create k8s clusters, resize k8s cluster, create pods, etc                    |
+| Tile & OpsManager is not agile  | It slows down everything. The development, testing and deployment.           |
+| Extend PKS API layer            | Easy to add more functionalities for PKS admins                              |
+| UX of PKS CLI                   | The usage of pks cli could be more intuitive                                 |
+| Improve PKS control panel HA    | Online rolling upgrade for opsmanager, uaa, pks api, etc                     |
 | Better storage support of PV    | HA for PV, and support more CSI providers                                    |
 | Cleanup for stale resources     | When operations have failed, need to do the cleanup in a safe way            |
 | More built-in security supports | PKS supports most common security enhancements, but it doesn't provides them |
@@ -88,13 +88,13 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 | PKS API server vm                 | See below       |
 | Build-in process in k8s master vm | See below       |
 | Build-in process in k8s worker vm | See below       |
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-deployment.png
+[[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-deployment.png]]
 ** Deployment with NSX-T + NAT
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-nat.png
+[[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-nat.png]]
 ** Deployment with NSX-T + No-NAT + vswitch
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-no-nat-virtual-switch.png
+[[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-no-nat-virtual-switch.png]]
 ** Deployment with NSX-T + No-NAT + logical switch
-https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-no-nat-logical-switch.png
+[[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-no-nat-logical-switch.png]]
 ** PKS footprint: in control panel
 | Name                          | Summary                                          |
 |-------------------------------+--------------------------------------------------|
@@ -3106,6 +3106,7 @@ export http_proxy=http://10.160.201.176:80
 * TODO pks scenario: once we have login to jumpbox, what command to run, in order to pks cluster command? :noexport:
 * TODO pks scenario: nats vs no-nats                               :noexport:
 * TODO pks scenario: delete pks tile                               :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO why I have two deployments in pks                           :noexport:
 #+BEGIN_EXAMPLE
 ubuntu@opsman:~$ bosh deployments
@@ -3149,7 +3150,6 @@ service-instance_16d226e4-9f51-4bb9-92ec-6a86cc55ec6c  bosh-dns/1.6.0           
 Succeeded
 ubuntu@opsman:~$
 #+END_EXAMPLE
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#A] Blog: Deep Dive Into PKS login process                 :noexport:
 ** Scenario: How to run bosh command
 ** Scenario: How to run pks command
@@ -3184,7 +3184,6 @@ https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
 * TODO Scenario: PV lifecycle management in PKS                    :noexport:
 * TODO [#A] pks scenario: resize worker vm node pool: active/passive :noexport:
 * TODO osb (on-demand-service-broker)                              :noexport:
-* TODO Summarize footprint                                         :noexport:
 * TODO [#A] Blog: Implmenet Kubernetes As a service                :noexport:
 ** HA design
 - UAA/PKS API mysql HA
@@ -3228,7 +3227,6 @@ https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
 * TODO Scenario: workflow for resizing k8s master vm               :noexport:
 * TODO Scenario: monitor pks etcd: https://docs.pivotal.io/runtimes/pks/1-2/monitor-etcd.html :noexport:
 The etcd VM provides monitoring data on its client port. You can enable the /debug endpoint for more verbose logging, but this can decrease cluster performance.
-* TODO Scenario: how etcd backupset is managed?                    :noexport:
 * TODO [#A] Trade-off PKS has made, compared GKE                   :noexport:
 ** Don't support mixed version in one k8s cluster
 - different hardware: machine flavor
@@ -3241,3 +3239,9 @@ https://docs.pivotal.io/runtimes/pks/1-2/troubleshoot-issues.html#kubeconfig-tok
 * TODO Scenario: PKS inject k8s yaml                               :noexport:
 https://docs.pivotal.io/runtimes/pks/1-2/troubleshoot-issues.html#bosh-pks-map
 Enable Post Deploy Scripts
+* TODO Scenarios: ncp active-inactive                              :noexport:
+https://docs.pivotal.io/runtimes/pks/1-2/nsxt-prepare-env.html
+In a multi-master PKS deployment, the NCP process runs on all master nodes. However, the process is active only on one master node. If the NCP process on an active master is unresponsive, BOSH activates another NCP process.
+* TODO Scenario: pks db(mysql) and k8s db(etcd) backupset is managed? :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO Summarize the footprint                                     :noexport:
