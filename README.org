@@ -91,8 +91,10 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-deployment.png
 ** Deployment with NSX-T + NAT
 https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-nat.png
-** Deployment with NSX-T + No-NAT
+** Deployment with NSX-T + No-NAT + vswitch
 https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-no-nat-virtual-switch.png
+** Deployment with NSX-T + No-NAT + logical switch
+https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-no-nat-logical-switch.png
 ** PKS footprint: in control panel
 | Name                          | Summary                                          |
 |-------------------------------+--------------------------------------------------|
