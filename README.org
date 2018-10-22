@@ -28,7 +28,7 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 |-----------+------------------------------------------------------------------------------------|
 | YouTube   | [[https://www.youtube.com/watch?v=d_NuJ7skpuY&index=19&list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: PKS overview]], [[https://www.youtube.com/playlist?list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: Pivotal Container Service (PKS) Demos and Webcasts]] |
 | Reference | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]]           |
-| Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Tile CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-uaac-A4][UAA CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][PKS CheatSheet]]                   |
+| Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Tile CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-uaa-A4][UAA CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][PKS CheatSheet]]                   |
 
 https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png
 ** Key Components
@@ -70,6 +70,7 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 ** PKS cli
 | Name                           | Command                                                                                            |
 |--------------------------------+----------------------------------------------------------------------------------------------------|
+| Check cli version              | =pks --version=                                                                                    |
 | List all pks clusters          | =pks clusters=                                                                                     |
 | Create cluster                 | =pks create-cluster cluster1 --external-hostname cluster1.pks.com --plan "$plan" --num-nodes 2=    |
 | Check cluster status           | =pks cluster cluster1=                                                                             |
@@ -88,6 +89,10 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 | Build-in process in k8s master vm | See below       |
 | Build-in process in k8s worker vm | See below       |
 https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-deployment.png
+** Deployment with NSX-T + NAT
+https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/nsxt-topology-nat.png
+** Deployment with NSX-T + No-NAT
+https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/nsxt-topology-no-nat-virtual-switch.png
 ** PKS footprint: in control panel
 | Name                          | Summary                                          |
 |-------------------------------+--------------------------------------------------|
@@ -3165,7 +3170,7 @@ https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
 
  Exit code 1
  #+END_EXAMPLE
-* TODO Blog: PKS value provides                                    :noexport:
+* TODO Blog: Difficulties to Implement a production-ready on-prem k8s env :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO scenario: Get external access for my pks cluster env        :noexport:
 * TODO pks resize will get the plan inconsistent                   :noexport:
@@ -3178,17 +3183,6 @@ https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
 * TODO [#A] pks scenario: resize worker vm node pool: active/passive :noexport:
 * TODO osb (on-demand-service-broker)                              :noexport:
 * TODO Summarize footprint                                         :noexport:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO Scenario: monitor pks etcd: https://docs.pivotal.io/runtimes/pks/1-2/monitor-etcd.html :noexport:
-The etcd VM provides monitoring data on its client port. You can enable the /debug endpoint for more verbose logging, but this can decrease cluster performance.
-* TODO Scenario: how etcd backupset is managed?                    :noexport:
-* TODO [#A] Trade-off PKS has made, compared GKE                   :noexport:
-** Don't support mixed version in one k8s cluster
-- different hardware: machine flavor
-- different software: kubernetes client version
-** Don't support downgrade for minor version
-- From ops manager: tile version need to keep going up. In GKE, we can downgrade to old minor version
-** Multi-cloud: doesn't mean support homegerous providers
 * TODO [#A] Blog: Implmenet Kubernetes As a service                :noexport:
 ** HA design
 - UAA/PKS API mysql HA
@@ -3227,3 +3221,21 @@ The etcd VM provides monitoring data on its client port. You can enable the /deb
 - Cluster Owners want to assure cluster availability during an upgrade of the cluster
 ** Performance tunning
 - More parellel: Alana can upgrade clusters in parallel (Individual cluster upgrade) or faster
+* TODO Enable Post Deploy Scripts: https://docs.pivotal.io/runtimes/pks/1-2/troubleshoot-issues.html#timeouts :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO Scenario: workflow for resizing k8s master vm               :noexport:
+* TODO Scenario: monitor pks etcd: https://docs.pivotal.io/runtimes/pks/1-2/monitor-etcd.html :noexport:
+The etcd VM provides monitoring data on its client port. You can enable the /debug endpoint for more verbose logging, but this can decrease cluster performance.
+* TODO Scenario: how etcd backupset is managed?                    :noexport:
+* TODO [#A] Trade-off PKS has made, compared GKE                   :noexport:
+** Don't support mixed version in one k8s cluster
+- different hardware: machine flavor
+- different software: kubernetes client version
+** Don't support downgrade for minor version
+- From ops manager: tile version need to keep going up. In GKE, we can downgrade to old minor version
+** Multi-cloud: doesn't mean support homegerous providers
+* TODO Scenario: authentication expired                            :noexport:
+https://docs.pivotal.io/runtimes/pks/1-2/troubleshoot-issues.html#kubeconfig-token-expire
+* TODO Scenario: PKS inject k8s yaml                               :noexport:
+https://docs.pivotal.io/runtimes/pks/1-2/troubleshoot-issues.html#bosh-pks-map
+Enable Post Deploy Scripts
