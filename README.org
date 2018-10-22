@@ -47,6 +47,26 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highle
 | PKS admin login to bosh for additional operations | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands |
 | Workflow of how PKS creates a k8s cluster         | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]                                               |
 | Deployment for env without internet               | Enforce air-gapped deployments                                                  |
+** What PKS Adds to Kubernetes
+| Name                                                 | Summary                        |
+|------------------------------------------------------+--------------------------------|
+| Secure multi-tenant ingress                          | NSX-T                          |
+| Secure container registry                            | VMware Harbor                  |
+| Rolling upgrades to cluster infrastructure           | IaaS: bosh VM upgrade          |
+| Cluster provisioning and scaling                     | IaaS: VM lifecycle management  |
+| Monitoring and recovery of cluster VMs and processes | IaaS: VM lifecycle management  |
+| Embedded, hardened operating system                  | Linux release for OS hardening |
+** PKS Challenges
+| Name                            | Command                                                                      |
+|---------------------------------+------------------------------------------------------------------------------|
+| Tile & OpsManager is not agile  | It slows down everything. The development, testing and deployment.           |
+| UX of PKS CLI                   | The usage of pks cli could be more intuitive                                 |
+| Extend PKS API layer            | Easy to add more functionalities for PKS admins                              |
+| Improve PKS control panel HA    | Online rolling upgrade for opsmanager, uaa, pks api, etc                     |
+| Faster for typical use cases    | Create k8s clusters, resize k8s cluster, create pods, etc                    |
+| Better storage support of PV    | HA for PV, and support more CSI providers                                    |
+| Cleanup for stale resources     | When operations have failed, need to do the cleanup in a safe way            |
+| More built-in security supports | PKS supports most common security enhancements, but it doesn't provides them |
 ** PKS cli
 | Name                           | Command                                                                                            |
 |--------------------------------+----------------------------------------------------------------------------------------------------|
@@ -116,21 +136,10 @@ https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-deploy
 | =bosh-dns-healthcheck=            |                                                     |
 | =pks-helpers-bosh-dns-resolvconf= |                                                     |
 ** PKS errands & tasks
-| Name        | Command                                    |
-|-------------+--------------------------------------------|
-| kubeconfig  | [[https://github.com/cloudfoundry-incubator/kubo-deployment/blob/998facf3e956c6d23e3723e013fccc05e0ec1ba9/bin/set_kubeconfig][Github: kubo-deployment/bin/set_kubeconfig]] |
-| apply-specs | =bosh -d cfcr run-errand apply-specs=      |
-** PKS Challenges
-| Name                            | Command                                                                      |
-|---------------------------------+------------------------------------------------------------------------------|
-| Tile & OpsManager is not agile  | It slows down everything. The development, testing and deployment.           |
-| UX of PKS CLI                   | The usage of pks cli could be more intuitive                                 |
-| Extend PKS API layer            | Easy to add more functionalities for PKS admins                              |
-| Improve PKS control panel HA    | Online rolling upgrade for opsmanager, uaa, pks api, etc                     |
-| Faster for typical use cases    | Create k8s clusters, resize k8s cluster, create pods, etc                    |
-| Better storage support of PV    | HA for PV, and support more CSI providers                                    |
-| Cleanup for stale resources     | When operations have failed, need to do the cleanup in a safe way            |
-| More built-in security supports | PKS supports most common security enhancements, but it doesn't provides them |
+| Name        | Command                                      |
+|-------------+----------------------------------------------|
+| kubeconfig  | [[https://github.com/cloudfoundry-incubator/kubo-deployment/blob/998facf3e956c6d23e3723e013fccc05e0ec1ba9/bin/set_kubeconfig][=Github: kubo-deployment/bin/set_kubeconfig=]] |
+| apply-specs | =bosh -d cfcr run-errand apply-specs=        |
 ** PKS Troubleshooting
 | Name                 | Command                |
 |----------------------+------------------------|
@@ -3133,6 +3142,53 @@ service-instance_16d226e4-9f51-4bb9-92ec-6a86cc55ec6c  bosh-dns/1.6.0           
 Succeeded
 ubuntu@opsman:~$
 #+END_EXAMPLE
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO [#A] Blog: Deep Dive Into PKS login process                 :noexport:
+** Scenario: How to run bosh command
+** Scenario: How to run pks command
+** Scenario: How to run kubectl command
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
+** bosh release + kubo vs PKS tile
+** jumpbox VM vs OpsManager VM
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
+** where I can find pks-api:8443?
+https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
+** align with the official documents link
+** TODO "bosh vms" runs into certificate problem: not good in jumpbox, but good in ops manager vm
+ #+BEGIN_EXAMPLE
+ kubo@jumper:~$ alias bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=O_uatb9Qj9rctkq3vG_y1WQ9HH-A5WMZ BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=30.0.0.11 bosh "
+ kubo@jumper:~$ bosh vms
+ Fetching info:
+   Performing request GET 'https://30.0.0.11:25555/info':
+     Performing GET request:
+       Retry: Get https://30.0.0.11:25555/info: x509: certificate signed by unknown authority
+
+ Exit code 1
+ #+END_EXAMPLE
+* TODO Blog: PKS value provides                                    :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO scenario: Get external access for my pks cluster env        :noexport:
+* TODO pks resize will get the plan inconsistent                   :noexport:
+* TODO Blog: 5 Key Difference in between GKE on-prem and PKS       :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO UAA vs Credhub                                              :noexport:
+* TODO Where to run pks command, ops manager or bosh director?     :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO Scenario: PV lifecycle management in PKS                    :noexport:
+* TODO [#A] pks scenario: resize worker vm node pool: active/passive :noexport:
+* TODO osb (on-demand-service-broker)                              :noexport:
+* TODO Summarize footprint                                         :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO Scenario: monitor pks etcd: https://docs.pivotal.io/runtimes/pks/1-2/monitor-etcd.html :noexport:
+The etcd VM provides monitoring data on its client port. You can enable the /debug endpoint for more verbose logging, but this can decrease cluster performance.
+* TODO Scenario: how etcd backupset is managed?                    :noexport:
+* TODO [#A] Trade-off PKS has made, compared GKE                   :noexport:
+** Don't support mixed version in one k8s cluster
+- different hardware: machine flavor
+- different software: kubernetes client version
+** Don't support downgrade for minor version
+- From ops manager: tile version need to keep going up. In GKE, we can downgrade to old minor version
+** Multi-cloud: doesn't mean support homegerous providers
 * TODO [#A] Blog: Implmenet Kubernetes As a service                :noexport:
 ** HA design
 - UAA/PKS API mysql HA
@@ -3171,47 +3227,3 @@ ubuntu@opsman:~$
 - Cluster Owners want to assure cluster availability during an upgrade of the cluster
 ** Performance tunning
 - More parellel: Alana can upgrade clusters in parallel (Individual cluster upgrade) or faster
-* TODO [#A] Trade-off PKS has made, compared GKE                   :noexport:
-** Don't support mixed version in one k8s cluster
-- different hardware: machine flavor
-- different software: kubernetes client version
-** Don't support downgrade for minor version
-- From ops manager: tile version need to keep going up. In GKE, we can downgrade to old minor version
-** Multi-cloud: doesn't mean support homegerous providers
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO [#A] Blog: Deep Dive Into PKS login process                 :noexport:
-** Scenario: How to run bosh command
-** Scenario: How to run pks command
-** Scenario: How to run kubectl command
-** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-** bosh release + kubo vs PKS tile
-** jumpbox VM vs OpsManager VM
-** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-** where I can find pks-api:8443?
-https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
-** align with the official documents link
-** TODO "bosh vms" runs into certificate problem: not good in jumpbox, but good in ops manager vm
- #+BEGIN_EXAMPLE
- kubo@jumper:~$ alias bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=O_uatb9Qj9rctkq3vG_y1WQ9HH-A5WMZ BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=30.0.0.11 bosh "
- kubo@jumper:~$ bosh vms
- Fetching info:
-   Performing request GET 'https://30.0.0.11:25555/info':
-     Performing GET request:
-       Retry: Get https://30.0.0.11:25555/info: x509: certificate signed by unknown authority
-
- Exit code 1
- #+END_EXAMPLE
-* TODO scenario: Get external access for my pks cluster env        :noexport:
-* TODO pks resize will get the plan inconsistent                   :noexport:
-* TODO Blog: 5 Key Difference in between GKE on-prem and PKS       :noexport:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO UAA vs Credhub                                              :noexport:
-* TODO Where to run pks command, ops manager or bosh director?     :noexport:
-* TODO Scenario: how etcd backupset is managed?                    :noexport:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO Scenario: PV lifecycle management in PKS                    :noexport:
-* TODO [#A] pks scenario: resize worker vm node pool: active/passive :noexport:
-* osb (on-demand-service-broker)                                   :noexport:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO Scenario: monitor pks etcd: https://docs.pivotal.io/runtimes/pks/1-2/monitor-etcd.html :noexport:
-The etcd VM provides monitoring data on its client port. You can enable the /debug endpoint for more verbose logging, but this can decrease cluster performance.
