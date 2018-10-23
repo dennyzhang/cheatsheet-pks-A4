@@ -43,9 +43,9 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 ** PKS Scenarios
 | Name                                              | Summary                                                                         |
 |---------------------------------------------------+---------------------------------------------------------------------------------|
-| How to run pks cli commands                       | [[https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/run-pks-cli.md][run-pks-cli.md]]                                                                  |
-| How to run bosh cli commands                      | [[https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/run-bosh-cli.md][run-bosh-cli.md]]                                                             |
-| How to run kubectl command                        | [[https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/run-kubectl.md][run-kubectl.md]]                                                    |
+| How to run pks cli commands                       | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-pks-cli.md][run-pks-cli.md]]                                                                  |
+| How to run bosh cli commands                      | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-bosh-cli.md][run-bosh-cli.md]]                                                                 |
+| How to run kubectl command                        | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-kubectl.md][run-kubectl.md]]                                                                  |
 | How PKS supports k8s master HA                    | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/60ce4836faa06a0de6781ec2ce1a0c34a4ea35f2/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]]                                 |
 | PKS admin login to bosh for additional operations | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands |
 | Workflow of how PKS creates a k8s cluster         | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]                                               |

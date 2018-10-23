@@ -17,7 +17,7 @@ From pks tile of Ops Manager, get "Uaa Admin Password"
 
 Sample:
 ```
-pks login -a api.pks.local -u admin -p RNq9jgPkuK4zZ7qTrmkvtQW-9tfwnAhG -k
+pks login -a api.pks.local -u admin -p "$uaa_admin_passwd" -k
 
 pks clusters
 ```
