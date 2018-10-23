@@ -32,17 +32,20 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 
 [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png]]
 ** Key Components
-| Name                          | Command                                                                  |
-|-------------------------------+--------------------------------------------------------------------------|
-| Computing virtualization      | [[https://docs.vmware.com/en/VMware-vSphere/index.html][VMware vSphere Documentation]]                                             |
-| [[https://docs.vmware.com/en/VMware-NSX-T/2.2/com.vmware.nsxt.ncp_kubernetes.doc/GUID-52A92986-0FDF-43A5-A7BB-C037889F7559.html][NCP: CNI for Vmware NSX-T]]     | Help to create pod networks in PKS k8s clusters                          |
-| [[https://docs-cfcr.cfapps.io/][CFCR/Kubo]]                     | CFCR aims to deploy/manage fleets of k8s clusters. Kubo is the old name. |
-| Bosh: VM lifecycle management | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Link: BOSH CHEATSHEET]], [[https://github.com/cloudfoundry/bosh][Github: Bosh]]                                      |
-| Packaging: tile, ops manager  | [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Link: CheatSheet: Cloudfoundry Tile & OpsManager]]                         |
-| CSI for persistent volume     | [[https://vmware.github.io/hatchway/#overview][GitHub: hatchway]]                                                         |
+| Name                          | Command                                                                                     |
+|-------------------------------+---------------------------------------------------------------------------------------------|
+| Computing virtualization      | [[https://docs.vmware.com/en/VMware-vSphere/index.html][Link: VMware vSphere Documentation]]                                                          |
+| [[https://docs.vmware.com/en/VMware-NSX-T/2.2/com.vmware.nsxt.ncp_kubernetes.doc/GUID-52A92986-0FDF-43A5-A7BB-C037889F7559.html][NCP: CNI for Vmware NSX-T]]     | Help to create pod networks in PKS k8s clusters                                             |
+| [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release][CFCR/Kubo]]                     | CFCR aims to deploy/manage fleets of k8s clusters.  [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release][cfcr-etcd-release]] |
+| Bosh: VM lifecycle management | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Link: BOSH CHEATSHEET]], [[https://github.com/cloudfoundry/bosh][Github: Bosh]]                                                         |
+| Packaging: tile, ops manager  | [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Link: CheatSheet: Cloudfoundry Tile & OpsManager]]                                            |
+| CSI for persistent volume     | [[https://vmware.github.io/hatchway/#overview][GitHub: hatchway]]                                                                            |
 ** PKS Scenarios
 | Name                                              | Summary                                                                         |
 |---------------------------------------------------+---------------------------------------------------------------------------------|
+| How to run pks cli commands                       | [[https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/run-pks-cli.md][run-pks-cli.md]]                                                                  |
+| How to run bosh cli commands                      | [[https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/run-bosh-cli.md][run-bosh-cli.md]]                                                             |
+| How to run kubectl command                        | [[https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/run-kubectl.md][run-kubectl.md]]                                                    |
 | How PKS supports k8s master HA                    | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/60ce4836faa06a0de6781ec2ce1a0c34a4ea35f2/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]]                                 |
 | PKS admin login to bosh for additional operations | Get bosh crediential from Ops Manager, ssh to opsmanager, and run bosh commands |
 | Workflow of how PKS creates a k8s cluster         | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]                                               |
@@ -72,7 +75,7 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 |--------------------------------+----------------------------------------------------------------------------------------------------|
 | Check cli version              | =pks --version=                                                                                    |
 | List all pks clusters          | =pks clusters=                                                                                     |
-| Create cluster                 | =pks create-cluster cluster1 --external-hostname cluster1.pks.com --plan "$plan" --num-nodes 2=    |
+| Create cluster                 | =pks create-cluster cluster1 --external-hostname cluster1.pks.com --plan "plan 1" --num-nodes 1=   |
 | Check cluster status           | =pks cluster cluster1=                                                                             |
 | Get cluster kubectl credential | =pks get-credentials <cluster_name>=                                                               |
 | Set kubectl context            | =kubectl config use-context <cluster_name>=                                                        |
@@ -135,8 +138,8 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | =kube-proxy=                      |                                                     |
 | =blackbox=                        |                                                     |
 | =nsx-node-agent=                  |                                                     |
-| =ovsdb-server=                    |                                                     |
-| =ovs-vswitchd=                    |                                                     |
+| =ovs-vswitchd=                    | open vSwitch                                        |
+| =ovsdb-server=                    | vSwitch database                                    |
 | =nsx-kube-proxy=                  |                                                     |
 | =bosh-dns=                        |                                                     |
 | =bosh-dns-resolvconf=             |                                                     |
@@ -3072,7 +3075,6 @@ variables:
 Succeeded
 #+END_EXAMPLE
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO PKS: How to get pks version for the server side, once I have login to pks vm? :noexport:
 * TODO procedure to setup pks                                      :noexport:
 create uaac user
 
@@ -3101,9 +3103,6 @@ Tile: jobs/upgrade-all-service-instances.yml
 ** When PKS recreates worker nodes, the upgrade runs on a single VM at a time.
 ** How fast the upgrade process will finish?
 * HALF [#A] concourse after hijack, fail to get ssh to k8s worker vm :noexport:
-* TODO pks scenario: once we have login to jumpbox, what command to run in order to run bosh commands? :noexport:
-export http_proxy=http://10.160.201.176:80
-* TODO pks scenario: once we have login to jumpbox, what command to run, in order to pks cluster command? :noexport:
 * TODO pks scenario: nats vs no-nats                               :noexport:
 * TODO pks scenario: delete pks tile                               :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
@@ -3150,28 +3149,6 @@ service-instance_16d226e4-9f51-4bb9-92ec-6a86cc55ec6c  bosh-dns/1.6.0           
 Succeeded
 ubuntu@opsman:~$
 #+END_EXAMPLE
-* TODO [#A] Blog: Deep Dive Into PKS login process                 :noexport:
-** Scenario: How to run bosh command
-** Scenario: How to run pks command
-** Scenario: How to run kubectl command
-** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-** bosh release + kubo vs PKS tile
-** jumpbox VM vs OpsManager VM
-** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-** where I can find pks-api:8443?
-https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
-** align with the official documents link
-** TODO "bosh vms" runs into certificate problem: not good in jumpbox, but good in ops manager vm
- #+BEGIN_EXAMPLE
- kubo@jumper:~$ alias bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=O_uatb9Qj9rctkq3vG_y1WQ9HH-A5WMZ BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=30.0.0.11 bosh "
- kubo@jumper:~$ bosh vms
- Fetching info:
-   Performing request GET 'https://30.0.0.11:25555/info':
-     Performing GET request:
-       Retry: Get https://30.0.0.11:25555/info: x509: certificate signed by unknown authority
-
- Exit code 1
- #+END_EXAMPLE
 * TODO Blog: Difficulties to Implement a production-ready on-prem k8s env :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO scenario: Get external access for my pks cluster env        :noexport:
@@ -3224,7 +3201,6 @@ https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
 - More parellel: Alana can upgrade clusters in parallel (Individual cluster upgrade) or faster
 * TODO Enable Post Deploy Scripts: https://docs.pivotal.io/runtimes/pks/1-2/troubleshoot-issues.html#timeouts :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO Scenario: workflow for resizing k8s master vm               :noexport:
 * TODO Scenario: monitor pks etcd: https://docs.pivotal.io/runtimes/pks/1-2/monitor-etcd.html :noexport:
 The etcd VM provides monitoring data on its client port. You can enable the /debug endpoint for more verbose logging, but this can decrease cluster performance.
 * TODO [#A] Trade-off PKS has made, compared GKE                   :noexport:
@@ -3243,5 +3219,34 @@ Enable Post Deploy Scripts
 https://docs.pivotal.io/runtimes/pks/1-2/nsxt-prepare-env.html
 In a multi-master PKS deployment, the NCP process runs on all master nodes. However, the process is active only on one master node. If the NCP process on an active master is unresponsive, BOSH activates another NCP process.
 * TODO Scenario: pks db(mysql) and k8s db(etcd) backupset is managed? :noexport:
+* TODO Scenario: change disk size in tile                          :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO Summarize the footprint                                     :noexport:
+* TODO Scenario: credential management                             :noexport:
+* TODO Scenario: workflow for resizing k8s master vm               :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO [#A] Blog: Deep Dive Into PKS login process                 :noexport:
+** bosh release + kubo vs PKS tile
+** jumpbox VM vs OpsManager VM
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
+** where I can find pks-api:8443?
+https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html#uaa-admin-login
+** align with the official documents link
+** TODO "bosh vms" runs into certificate problem: not good in jumpbox, but good in ops manager vm
+ #+BEGIN_EXAMPLE
+ kubo@jumper:~$ alias bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=O_uatb9Qj9rctkq3vG_y1WQ9HH-A5WMZ BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=30.0.0.11 bosh "
+ kubo@jumper:~$ bosh vms
+ Fetching info:
+   Performing request GET 'https://30.0.0.11:25555/info':
+     Performing GET request:
+       Retry: Get https://30.0.0.11:25555/info: x509: certificate signed by unknown authority
+
+ Exit code 1
+ #+END_EXAMPLE
+
+** TODO PKS: How to get pks version for the server side, once I have login to pks vm? :noexport:
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
+** Run uaa commands
+** Run pks command
+** Login with uaa certificate
+https://docs.pivotal.io/pivotalcf/2-3/security/pcf-infrastructure/api-cert-rotation.html#root-certs
