@@ -18,18 +18,16 @@
 
 - PDF Link: [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-rancher-A4/cheatsheet-rancher-A4.pdf][cheatsheet-rancher-A4.pdf]], Category: [[https://cheatsheet.dennyzhang.com/category/kubernetes/][kubernetes]]
 - Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4
-- Related posts:  [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-openshift-A4][OpenShift CheatSheet]]
+- Related posts: [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-openshift-A4][OpenShift CheatSheet]], [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 
 File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-pks-A4][this repo]].
-
-See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 ** PKS Reference
-| Name      | Command                                                                            |
-|-----------+------------------------------------------------------------------------------------|
-| YouTube   | [[https://www.youtube.com/watch?v=d_NuJ7skpuY&index=19&list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: PKS overview]], [[https://www.youtube.com/playlist?list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: Pivotal Container Service (PKS) Demos and Webcasts]] |
-| Reference | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]]           |
-| Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Tile CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-uaa-A4][UAA CheatSheet]]                                   |
-| Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-openshift-A4][OpenShift CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-rancher-A4][Rancher CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][PKS CheatSheet]]                           |
+| Name      | Command                                                                                     |
+|-----------+---------------------------------------------------------------------------------------------|
+| YouTube   | [[https://www.youtube.com/watch?v=d_NuJ7skpuY&index=19&list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: PKS overview]], [[https://www.youtube.com/playlist?list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: Pivotal Container Service (PKS) Demos and Webcasts]]          |
+| Reference | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]], [[https://www.virtuallyghetto.com/category/cloud-native][PKS personal blog]] |
+| Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Bosh CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Tile CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-uaa-A4][UAA CheatSheet]]                                            |
+| Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-openshift-A4][OpenShift CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-rancher-A4][Rancher CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][PKS CheatSheet]]                                    |
 
 [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-highlevel.png]]
 ** PKS Strengths
@@ -46,16 +44,24 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 |-------------------------------+---------------------------------------------------------------------------------------------|
 | Computing virtualization      | [[https://docs.vmware.com/en/VMware-vSphere/index.html][Link: VMware vSphere Documentation]]                                                          |
 | [[https://docs.vmware.com/en/VMware-NSX-T/2.2/com.vmware.nsxt.ncp_kubernetes.doc/GUID-52A92986-0FDF-43A5-A7BB-C037889F7559.html][NCP: CNI for Vmware NSX-T]]     | Help to create pod networks in PKS k8s clusters                                             |
-| [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release][CFCR/Kubo]]                     | CFCR aims to deploy/manage fleets of k8s clusters.  [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release][cfcr-etcd-release]] |
+| [[https://docs-cfcr.cfapps.io/][CFCR/Kubo]]                     | CFCR aims to deploy/manage fleets of k8s clusters.  [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release][cfcr-etcd-release]] |
 | Bosh: VM lifecycle management | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Link: BOSH CHEATSHEET]], [[https://github.com/cloudfoundry/bosh][Github: Bosh]]                                                         |
 | Packaging: tile, ops manager  | [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Link: CheatSheet: Cloudfoundry Tile & OpsManager]]                                            |
 | CSI for persistent volume     | [[https://vmware.github.io/hatchway/#overview][GitHub: hatchway]]                                                                            |
+** VMware Product Integrations
+| Name                         | Command                                                       |
+|------------------------------+---------------------------------------------------------------|
+| wavefront                    | [[https://www.youtube.com/watch?v=NAOUUSr9HDU&t=9s][YouTube: Pivotal Container Service (PKS) and VMware Wavefront]] |
+| log insight                  | [[https://www.youtube.com/watch?v=h_99uAgopAQ&t=2s][YouTube: PKS and VMware vRealize Log Insight]]                  |
+| vrops                        | [[https://www.youtube.com/watch?v=YHpI_DcBlDM&list=PLrFo2o1FG9n4q6F9hjK1-OxI-3s7luhmJ][YouTube: VMware vRealize Operations]]                           |
+| vcd (VMware vCLoud Director) | [[https://www.youtube.com/watch?v=95Pgh0QTQnE][YouTube: VMware vCloud Director Overview]]                      |
 ** PKS Scenarios
 | Name                                      | Summary                                         |
 |-------------------------------------------+-------------------------------------------------|
 | How to run pks cli commands               | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-pks-cli.md][run-pks-cli.md]]                                  |
 | How to run bosh cli commands              | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-bosh-cli.md][run-bosh-cli.md]]                                 |
 | How to run kubectl command                | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-kubectl.md][run-kubectl.md]]                                  |
+| How airgap integration tests are enforced | For each node, load specific iptable rules      |
 | How PKS supports k8s master HA            | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/60ce4836faa06a0de6781ec2ce1a0c34a4ea35f2/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]] |
 | Workflow of how PKS creates a k8s cluster | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]               |
 | Deployment for env without internet       | Enforce air-gapped integration deployment tests |
@@ -231,12 +237,6 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+LINK_UP:
 #+LINK_HOME:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* DONE Local notes                                                 :noexport:
-  CLOSED: [2018-10-24 Wed 16:14]
-** DONE Scenario: how airgap is implemented: iptable rules         :noexport:
-   CLOSED: [2018-10-24 Wed 16:14]
- https://github.com/pivotal-cf/pks-releng-ci/blob/master/scripts/airgap_env.sh
- https://gitlab.eng.vmware.com/PKS/tooling/hack-nimbus/blob/master/pks-dev-with-nsx-t/gw/scripts/airgap/iptable.rules
 * DONE pks tile example                                            :noexport:
   CLOSED: [2018-10-19 Fri 16:46]
 ** with vrli enabled
@@ -3089,20 +3089,11 @@ variables:
 Succeeded
 #+END_EXAMPLE
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO procedure to setup pks                                      :noexport:
-create uaac user
-
-pks create cluster
-
-then get the ip to update /etc/hosts
-* TODO ssh to k8s vms                                              :noexport:
-- delete nat rule
-- ssh to ops manager as a bastin
-  ssh ubuntu@30.0.0.5
-  get bosh credential
-  bosh ssh to vm
-* TODO uaac token: access token vs refresh token                   :noexport:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO pks scenario: upgrade cluster                               :noexport:
+Tile: jobs/upgrade-all-service-instances.yml
+** How HA model works for the upgrade of multiple-master cluster
+** When PKS recreates worker nodes, the upgrade runs on a single VM at a time.
+** How fast the upgrade process will finish?
 * TODO [#A] pks scenario: kubectl creation               :noexport:important:
 | Task                                       | Summary                                                        |
 |--------------------------------------------+----------------------------------------------------------------|
@@ -3111,15 +3102,11 @@ then get the ip to update /etc/hosts
 | kubectl create deployment                  |                                                                |
 | kubectl delete networkpolicy               |                                                                |
 | kubectl create service/lb, service/ingress |                                                                |
-* TODO pks scenario: upgrade cluster                               :noexport:
-Tile: jobs/upgrade-all-service-instances.yml
-** How HA model works for the upgrade of multiple-master cluster
-** When PKS recreates worker nodes, the upgrade runs on a single VM at a time.
-** How fast the upgrade process will finish?
 * HALF [#A] concourse after hijack, fail to get ssh to k8s worker vm :noexport:
 * TODO pks scenario: nats vs no-nats                               :noexport:
 * TODO pks scenario: delete pks tile                               :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO uaac token: access token vs refresh token                   :noexport:
 * TODO why I have two deployments in pks                           :noexport:
 #+BEGIN_EXAMPLE
 ubuntu@opsman:~$ bosh deployments
@@ -3167,7 +3154,6 @@ ubuntu@opsman:~$
 * TODO scenario: Get external access for my pks cluster env        :noexport:
 * TODO pks resize will get the plan inconsistent                   :noexport:
 * TODO Blog: 5 Key Difference in between GKE on-prem and PKS       :noexport:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO UAA vs Credhub                                              :noexport:
 * TODO Where to run pks command, ops manager or bosh director?     :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
@@ -3213,9 +3199,9 @@ ubuntu@opsman:~$
 ** Performance tunning
 - More parellel: Alana can upgrade clusters in parallel (Individual cluster upgrade) or faster
 * TODO Enable Post Deploy Scripts: https://docs.pivotal.io/runtimes/pks/1-2/troubleshoot-issues.html#timeouts :noexport:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO Scenario: monitor pks etcd: https://docs.pivotal.io/runtimes/pks/1-2/monitor-etcd.html :noexport:
 The etcd VM provides monitoring data on its client port. You can enable the /debug endpoint for more verbose logging, but this can decrease cluster performance.
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#A] Trade-off PKS has made, compared GKE                   :noexport:
 ** Don't support mixed version in one k8s cluster
 - different hardware: machine flavor
@@ -3233,7 +3219,6 @@ https://docs.pivotal.io/runtimes/pks/1-2/nsxt-prepare-env.html
 In a multi-master PKS deployment, the NCP process runs on all master nodes. However, the process is active only on one master node. If the NCP process on an active master is unresponsive, BOSH activates another NCP process.
 * TODO Scenario: pks db(mysql) and k8s db(etcd) backupset is managed? :noexport:
 * TODO Scenario: change disk size in tile                          :noexport:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO Scenario: credential management                             :noexport:
 * TODO Scenario: workflow for resizing k8s master vm               :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
@@ -3257,12 +3242,11 @@ https://docs.pivotal.io/pivotalcf/2-3/security/pcf-infrastructure/api-cert-rotat
 
  Exit code 1
  #+END_EXAMPLE
-* TODO Summarize the footprint                                     :noexport:
 * TODO tile know the configurable status: vrli true/false          :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO In Opsmanager, I can't switch to tempest-web user any more  :noexport:
 * TODO /usr/local/bin/bosh --no-color --non-interactive --tty --environment=30.0.0.11 --deployment=pivotal-container-service-527dd7bcf6292e00ab87 run-errand upgrade-all-service-instances :noexport:
-* TODO why create-deployment will do?                              :noexport:
+* TODO what create-deployment will do?                             :noexport:
 #+BEGIN_EXAMPLE
 kubo@jumper:/home/denny/p-pks-integrations$ cat /home/denny/pks.yml
 instance_groups:
@@ -4729,3 +4713,89 @@ kubo@jumper:/home/denny/p-pks-integrations$
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO Competitor: Gardener                                        :noexport:
 https://github.com/gardener
+* TODO Seperate "VMware Product Integrations" into a seperate blog :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO Scenario: How to run the test for each Kubernetes clusters? :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO [#A] jumpbox fail to ssh to pks k8s worker vm: kubo ok, hack-nimbus error :noexport:
+* TODO How GKE resize cluster/node pool to smaller                 :noexport:
+* TODO Suggestion: only one daemonset for each k8s worker vm in pks :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO [#A] Scenario: ssh worker vm and run kubectl command        :noexport:
+alias kubectl="/var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kubelet/config/kubeconfig"
+
+kubectl get pods -n kube-system
+
+kubectl -n kube-system describe pod/wavefront-proxy-64746cdcf-nmbqb
+
+kubectl -n kube-system get secrets/wavefront-secret -o yaml
+
+echo Njg3NjU0OWItNDNhZS00MjdmLWFhMTktOWJlOWEyYmFjZmNl | base64 --decode
+
+/var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kubelet/config/kubeconfig get nodes
+
+/var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kubelet/config/kubeconfig-drain get all --all-namespaces
+
+/var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kube-proxy/config/kubeconfig get all --all-namespaces
+
+/var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kube-proxy/config/kubeconfig -n kube-system  logs pod/wavefront-proxy-64746cdcf-klwvh
+** /var/vcap/jobs/kubelet/config/kubeconfig
+#+BEGIN_EXAMPLE
+apiVersion: v1
+kind: Config
+clusters:
+- cluster:
+    certificate-authority: "/var/vcap/jobs/kubelet/config/apiserver-ca.pem"
+    server: https://master.cfcr.internal:8443
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: kubelet
+  name: kubelet
+current-context: kubelet
+users:
+- name: kubelet
+  user:
+    token: "XXX"
+#+END_EXAMPLE
+** /var/vcap/jobs/kubelet/config/kubeconfig-drain
+#+BEGIN_EXAMPLE
+apiVersion: v1
+kind: Config
+clusters:
+- cluster:
+    certificate-authority: "/var/vcap/jobs/kubelet/config/apiserver-ca.pem"
+    server: https://master.cfcr.internal:8443
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: kubelet-drain
+  name: kubelet-drain
+current-context: kubelet-drain
+users:
+- name: kubelet-drain
+  user:
+    token: "XXX"
+#+END_EXAMPLE
+** /var/vcap/jobs/kube-proxy/config/kubeconfig
+#+BEGIN_EXAMPLE
+apiVersion: v1
+kind: Config
+clusters:
+- cluster:
+    certificate-authority: "/var/vcap/jobs/kube-proxy/config/ca.pem"
+    server: https://master.cfcr.internal:8443
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: kube-proxy
+  name: kube-proxy
+current-context: kube-proxy
+users:
+- name: kube-proxy
+  user:
+    token: "XXX"
+#+END_EXAMPLE
