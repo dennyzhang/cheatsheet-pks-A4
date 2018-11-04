@@ -46,7 +46,7 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 | [[https://docs.vmware.com/en/VMware-NSX-T/2.2/com.vmware.nsxt.ncp_kubernetes.doc/GUID-52A92986-0FDF-43A5-A7BB-C037889F7559.html][NCP: CNI for Vmware NSX-T]]     | Help to create pod networks in PKS k8s clusters                                             |
 | [[https://docs-cfcr.cfapps.io/][CFCR/Kubo]]                     | CFCR aims to deploy/manage fleets of k8s clusters.  [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release][cfcr-etcd-release]] |
 | Bosh: VM lifecycle management | [[https://cheatsheet.dennyzhang.com/cheatsheet-bosh-A4][Link: BOSH CHEATSHEET]], [[https://github.com/cloudfoundry/bosh][Github: Bosh]]                                                         |
-| Packaging: tile, ops manager  | [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][Link: CheatSheet: Cloudfoundry Tile & OpsManager]]                                            |
+| Packaging: tile, ops manager  | [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][CheatSheet: Cloudfoundry Tile & OpsManager]]                                                  |
 | CSI for persistent volume     | [[https://vmware.github.io/hatchway/#overview][GitHub: hatchway]]                                                                            |
 ** VMware Product Integrations
 | Name                         | Command                                                       |
@@ -65,6 +65,19 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 | How PKS supports k8s master HA            | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/60ce4836faa06a0de6781ec2ce1a0c34a4ea35f2/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]] |
 | Workflow of how PKS creates a k8s cluster | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]               |
 | Deployment for env without internet       | Enforce air-gapped integration deployment tests |
+** Get bosh/pks tile credential from om
+| Name                                        | Summary                                                                                                                |
+|---------------------------------------------+------------------------------------------------------------------------------------------------------------------------|
+| omcli                                       | alias omcli="om -t https://30.0.0.5 -u admin -p $passwd -k"                                                            |
+| bosh tile -> Bosh Commandline Credentials   | =omcli curl -p /api/v0/deployed/director/credentials/bosh2_commandline_credentials=                                    |
+| Get ops-manager ca cert                     | =omcli curl -p /api/v0/certificate_authorities=                                                                        |
+| pks tile -> Uaa Admin Password              | =omcli curl -p /api/v0/deployed/products/${bosh_deployment}/credentials/.properties.uaa_admin_password=                |
+| pks tile -> Pks Uaa Management Admin Client | =omcli curl -p /api/v0/deployed/products/${bosh_deployment}/credentials/.properties.pks_uaa_management_admin_client=   |
+| pks tile -> api server FQDN                 | =omcli curl -p /api/v0/deployed/products/${bosh_deployment}/credentials/.properties.pks_api_hostname=                  |
+| pks tile -> pks certificates                | =omcli curl -p /api/v0/deployed/products/${bosh_deployment}/credentials/.pivotal-container-service.pks_tls=            |
+| pks tile -> whether wavefront is enabled    | =omcli curl -p /api/v0/deployed/products/${bosh_deployment}/credentials/.properties.wavefront=                         |
+| pks tile -> wavefront token                 | =omcli curl -p /api/v0/deployed/products/${bosh_deployment}/credentials/.properties.wavefront.enabled.wavefront_token= |
+| Reference                                   | [[https://cheatsheet.dennyzhang.com/cheatsheet-tile-A4][CheatSheet: Cloudfoundry Tile & OpsManager]]                                                                             |
 ** What PKS Adds to Kubernetes
 | Name                                                 | Summary                        |
 |------------------------------------------------------+--------------------------------|
@@ -98,6 +111,7 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 | pks login                      | =pks login -a <api.test.com> -u <username> -p <passwd> -k=                                         |
 | pks login                      | =pks login --skip-ssl-validation --username <username> --password <password> --api <pks.test.com>= |
 | Default roles in pks UAA       | =pks.clusters.manage=, =pks.clusters.admin=, [[https://docs.pivotal.io/runtimes/pks/1-0/manage-users.html][Link: Manage Users in UAA]]                             |
+
 ** Deployment Diagram
 | Name                              | Summary         |
 |-----------------------------------+-----------------|

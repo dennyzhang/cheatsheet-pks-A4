@@ -13,7 +13,10 @@ Usually it's like below
 ```
 
 - pks login
-From pks tile of Ops Manager, get "Uaa Admin Password"
+
+From pks tile in ops manager, get API hostname(FQDN) for your PKS api server. It's probably `api.pks.local` or `pks.pks-api.cf-app.com`
+
+From pks tile in ops Manager, get "Uaa Admin Password"
 
 Sample:
 ```
