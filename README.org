@@ -56,12 +56,16 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 | log insight                  | [[https://www.youtube.com/watch?v=h_99uAgopAQ&t=2s][YouTube: PKS and VMware vRealize Log Insight]] |
 | vrops                        | [[https://www.youtube.com/watch?v=YHpI_DcBlDM&list=PLrFo2o1FG9n4q6F9hjK1-OxI-3s7luhmJ][YouTube: VMware vRealize Operations]]          |
 | vcd (VMware vCLoud Director) | [[https://www.youtube.com/watch?v=95Pgh0QTQnE][YouTube: VMware vCloud Director Overview]]     |
+#+BEGIN_HTML
+<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+#+END_HTML
+
 ** PKS Scenarios
 | Name                                      | Summary                                         |
 |-------------------------------------------+-------------------------------------------------|
 | How to run pks cli commands               | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-pks-cli.md][run-pks-cli.md]]                                  |
 | How to run bosh cli commands              | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-bosh-cli.md][run-bosh-cli.md]]                                 |
-| How to run kubectl command                | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-kubectl.md][run-kubectl.md]]                                  |
+| How to run kubectl command                | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-kubectl-in-pks.md][run-kubectl-in-pks.md]]                           |
 | How airgap integration tests are enforced | For each node, load specific iptable rules      |
 | How PKS supports k8s master HA            | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/60ce4836faa06a0de6781ec2ce1a0c34a4ea35f2/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]] |
 | Workflow of how PKS creates a k8s cluster | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]               |
@@ -101,6 +105,9 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 | pks login                      | =pks login -a <api.test.com> -u <username> -p <passwd> -k=                         |
 | pks login                      | =pks login -k --username <username> --password <password> --api <myk8s1.test.com>= |
 | Default roles in pks UAA       | =pks.clusters.manage=, =pks.clusters.admin=, [[https://docs.pivotal.io/runtimes/pks/1-0/manage-users.html][Link: Manage Users in UAA]]             |
+#+BEGIN_HTML
+<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+#+END_HTML
 
 ** Deployment Diagram
 | Name                              | Summary         |
@@ -167,6 +174,9 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 |----------------------+------------------------|
 | Log files in pks vms | =/var/vcap/sys/log=    |
 | Reference            | [[https://docs.pivotal.io/pivotalcf/2-3/customizing/troubleshooting-diagnostics.html][Link: PKS Troubleshoot]] |
+#+BEGIN_HTML
+<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+#+END_HTML
 ** Deployment with NSX-T + NAT
 [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-nat.png]]
 ** Deployment with NSX-T + No-NAT + vswitch
@@ -4730,6 +4740,8 @@ alias kubectl="/var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/
 
 kubectl get pods -n kube-system
 
+/var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kubelet/config/kubeconfig get nodes
+
 kubectl -n kube-system describe pod/wavefront-proxy-64746cdcf-nmbqb
 
 kubectl -n kube-system get secrets/wavefront-secret -o yaml
@@ -4743,6 +4755,7 @@ echo Njg3NjU0OWItNDNhZS00MjdmLWFhMTktOWJlOWEyYmFjZmNl | base64 --decode
 /var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kube-proxy/config/kubeconfig get all --all-namespaces
 
 /var/vcap/packages/kubernetes/bin/kubectl --kubeconfig=/var/vcap/jobs/kube-proxy/config/kubeconfig -n kube-system  logs pod/wavefront-proxy-64746cdcf-klwvh
+
 ** /var/vcap/jobs/kubelet/config/kubeconfig
 #+BEGIN_EXAMPLE
 apiVersion: v1
@@ -4804,3 +4817,79 @@ users:
     token: "XXX"
 #+END_EXAMPLE
 * TODO In nimbus env, get gateway ip from devhub                   :noexport:
+* TODO 4 Persona                                                   :noexport:
+| Role     | Summary         |
+|----------+-----------------|
+| Naomi    |                 |
+| Cody     | kubectl         |
+| Alana    | PKS, opsmanager |
+| VI admin | vcenter, nsx-t  |
+#+BEGIN_EXAMPLE
+Understanding the Personas of Alana, Cody and Naomi within Pivotal Container Service (PKS)
+
+ACTION: With the goal of providing a public-facing explanation of the PKS Personas, I am authoring a KB article outlining the Alana/Cody/Naomi personas. Below is the Draft.
+Please provide your feedback and comments on the below article prior to me publishing it publicly.  Idea KUBO-I-45 created(To be promoted) in https://pks.ideas.aha.io/ideas 
+
+ADDITIONAL REFERENCES (for consideration?):
+
+PKS Personas (Realtime Dashboard) - Alana, Cody, Naomi, Bonnie, etc
+The Four Personas served with Pivotal's "Accelerate and Converge" Product Strategy
+
+#### BEGIN ARTICLE #### 
+
+ARTICLE TITLE: 
+Understanding the Personas of Alana, Cody and Naomi within Pivotal Container Service (PKS)
+
+ARTICLE URL NAME:
+Understanding-the-Personas-of-Alana-Cody-and-Naomi-within-Pivotal-Container-Service-PKS
+
+ARTICLE SUMMARY (Appears along with search results):
+When someone refers to the Personas (names) of Alana, Cody or Naomi within PKS, this article will help explain what they are referring to.
+
+
+ARTICLE DETAILS
+INTRODUCTION:
+<TBD> Not sure we need an intro
+
+
+SYNOPSIS:
+
+At the end of this section is a helpful diagram of three Personas who interact and work with Pivotal Container Service (PKS). 
+
+Three Personas are:
+
+Alana:
+Alana is a PKS Administrator and Operator.  This person is involved in the following aspects of Pivotal Container Service: 
+
+- Initial PKS Deployment and Installation activities
+- PKS platform upgrades and systems patches
+- PKS Tile Administration and the PKS control plane
+- Setting PKS Role-Based Access Control for the PKS control plane.   Alana is the persona who provides access and authorization to any of the PKS Cluster Administrators.
+
+
+Cody:
+Cody has the ability to create a PKS cluster and become its PKS cluster Admin.  This persona is involved in the following aspects of Pivotal Container Service: 
+
+- Can create a PKS cluster through mechanism of pks cli: pks create-cluster ...
+- Can be the PKS Cluster Administrator.
+- Sets Kubernetes Role-Based Access Control (RBAC) to a specific PKS Cluster for End-users and Developers within the Kubernetes control plane.
+
+
+Naomi:
+Naomi is an end-user or developer on a Kubernetes cluster.  This person is involved in the following aspects of Pivotal Container Service: 
+
+- Access a Kubernetes API for the cluster they have access to
+- Can use the kubectl cli, Kubernetes Dashboard, or other Kubernetes API clients to interact with a specific PKS Cluster
+ 
+
+
+DESCRIPTION:
+
+#### END ARTICLE #### 
+#+END_EXAMPLE
+* TODO Why my container fail to ping the om endpoint, even after http_proxy :noexport:
+om --target https://30.0.0.5 --username admin --password 'AdminXXX -k curl --request GET --data '' --path /api/v0/certificate_authorities -s
+* TODO explore postgres credential                                 :noexport:
+https://30.0.0.5/api/v0/deployed/director/credentials/postgres_credentials
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* HALF pks concourse jumpbox run kubectl command                   :noexport:
