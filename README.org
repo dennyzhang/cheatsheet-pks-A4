@@ -4893,3 +4893,4 @@ om --target https://30.0.0.5 --username admin --password 'AdminXXX -k curl --req
 https://30.0.0.5/api/v0/deployed/director/credentials/postgres_credentials
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * HALF pks concourse jumpbox run kubectl command                   :noexport:
+* TODO [#A] Summarize pks footprint                                :noexport:
