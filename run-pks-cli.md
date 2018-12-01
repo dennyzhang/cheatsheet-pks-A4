@@ -31,6 +31,7 @@ Sample:
 ```
 export uaa_admin_passwd='XXX'
 pks login -a api.pks.local -u admin -p "$uaa_admin_passwd" -k
+# pks login -a pks.pks-api.cf-app.com -u admin -p "$uaa_admin_passwd" -k
 
 pks clusters
 ```
