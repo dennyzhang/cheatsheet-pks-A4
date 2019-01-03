@@ -38,4 +38,7 @@ pks login -a api.pks.local -u admin -p "$uaa_admin_passwd" -k
 # pks login -a pks.pks-api.cf-app.com -u admin -p "$uaa_admin_passwd" -k
 
 pks clusters
+
+# pks create-cluster <cluster-name> -e <subdomain>.pks.local -p "plan 1" -n 1
+# pks create-cluster k8s1 -e k8s1.pks.local -p "plan 1" -n 1
 ```
