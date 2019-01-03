@@ -8870,3 +8870,4 @@ export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=w3atuVhdEGMnaUpMpZFQkR3Pd82-38
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#A] On Demand Broker                                       :noexport:
 * TODO [#A] In PKS, how I can dig deeper, when "kubectl get pods" is very slow :noexport:
+* TODO In NAT env, bosh ssh to k8s worker vm                       :noexport:
