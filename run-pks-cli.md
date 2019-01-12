@@ -25,7 +25,7 @@ alias omcli="om -t https://30.0.0.5 -u admin -p $passwd -k"
 From pks tile in ops Manager, get "Uaa Admin Password"
 ```
 source ~/gw_scripts/*.sh
-bosh deployments
+bosh vms
 export bosh_deployment='pivotal-container-service-XXX'
 
 omcli curl -p /api/v0/deployed/products/${bosh_deployment}/credentials/.properties.uaa_admin_password
