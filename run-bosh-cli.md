@@ -28,7 +28,8 @@ sshpass -p "$jumpbox_passwd" ssh -o StrictHostKeyChecking=no kubo@$jumpbox_ip
 # Then ssh to opsmanager VM
 sshpass -p "$opsmanager_passwd" ssh -o StrictHostKeyChecking=no ubuntu@30.0.0.5
 
-export bosh="BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=oo1Pn-86gsWA_Y5kfsUhWo-xUNoBkMYE BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=30.0.0.11 bosh " # change to bosh_commandline_credentials you have retrieved before
+# change to bosh_commandline_credentials you have retrieved before
+export BOSH_CLIENT=ops_manager BOSH_CLIENT_SECRET=oo1Pn-86gsWA_Y5kfsUhWo-xUNoBkMYE BOSH_CA_CERT=/var/tempest/workspaces/default/root_ca_certificate BOSH_ENVIRONMENT=30.0.0.11
 
 # Run bosh commands and try
 bosh vms
