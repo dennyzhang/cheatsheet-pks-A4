@@ -1,5 +1,6 @@
 * PKS CheatSheet                                                 :Cloud:
-:PROPERTIES:type:     kubernetes, pks, vmware
+:PROPERTIES:
+:type:     kubernetes, pks, vmware
 :export_file_name: cheatsheet-pks-A4.pdf
 :END:
 #+BEGIN_HTML
@@ -18,11 +19,12 @@
 - Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4
 - Related posts: [[https://cheatsheet.dennyzhang.com/cheatsheet-vmware-A4][CheatSheet: VMware Products]], [[https://cheatsheet.dennyzhang.com/cheatsheet-openshift-A4][OpenShift CheatSheet]], [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 
-File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-pks-A4][this repo]].
+File me [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/issues][Issues]] or star [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com][this repo]].
 ** PKS Reference
 | Name      | Summary                                                                                     |
 |-----------+---------------------------------------------------------------------------------------------|
 | YouTube   | [[https://www.youtube.com/playlist?list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: PKS Demos and Webcasts]], [[https://www.youtube.com/watch?v=d_NuJ7skpuY&index=19&list=PL7bmigfV0EqQzsvOcT8KYfulg-lpNsooC][YouTube: PKS overview]]                                      |
+| Reference | [[https://network.pivotal.io/][pivnet download]], [[https://bosh.io/stemcells/bosh-vsphere-esxi-ubuntu-xenial-go_agent][Download stemcells]]                                                         |
 | Reference | [[https://docs.pivotal.io/runtimes/pks/1-2/index.html][PKS Documentation]], [[https://docs.pivotal.io/runtimes/pks/1-2/concepts.html][PKS Concepts]], [[https://docs.pivotal.io/runtimes/pks/1-2/release-notes.html][PKS 1.2 Release Notes]], [[https://docs.pivotal.io/runtimes/pks/1-2/managing.html][Managing PKS 1.2]], [[https://www.virtuallyghetto.com/category/cloud-native][PKS personal blog]] |
 | Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-infra-A4][CheatSheet: IT Infrastructure Fundamentals]], [[https://cheatsheet.dennyzhang.com/category/vmware][VMware CheatSheet]]                               |
 | Reference | [[https://cheatsheet.dennyzhang.com/cheatsheet-openshift-A4][OpenShift CheatSheet]], [[https://cheatsheet.dennyzhang.com/cheatsheet-rancher-A4][Rancher CheatSheet]]                                                    |
@@ -53,7 +55,7 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 | vrops                        | [[https://www.youtube.com/watch?v=YHpI_DcBlDM&list=PLrFo2o1FG9n4q6F9hjK1-OxI-3s7luhmJ][YouTube: VMware vRealize Operations]]          |
 | vcd (VMware vCLoud Director) | [[https://www.youtube.com/watch?v=95Pgh0QTQnE][YouTube: VMware vCloud Director Overview]]     |
 #+BEGIN_HTML
-<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+<a href="https://cheatsheet.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
 #+END_HTML
 ** PKS cli
 | Name                           | Command                                                                            |
@@ -70,19 +72,19 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 | pks login                      | =pks login -k --username <username> --password <password> --api <myk8s1.test.com>= |
 | Default roles in pks UAA       | =pks.clusters.manage=, =pks.clusters.admin=, [[https://docs.pivotal.io/runtimes/pks/1-0/manage-users.html][Link: Manage Users in UAA]]             |
 #+BEGIN_HTML
-<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+<a href="https://cheatsheet.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
 #+END_HTML
 ** PKS Troubleshooting
-| Name                                        | Summary                                         |
-|---------------------------------------------+-------------------------------------------------|
-| Log files in pks vms                        | =/var/vcap/sys/log=                             |
-| How to run pks cli commands                 | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-pks-cli.md][run-pks-cli.md]]                                  |
-| How to run bosh cli commands, like bosh ssh | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-bosh-cli.md][run-bosh-cli.md]]                                 |
-| How to run kubectl command                  | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-kubectl-in-pks.md][run-kubectl-in-pks.md]]                           |
-| How PKS supports k8s master HA              | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/60ce4836faa06a0de6781ec2ce1a0c34a4ea35f2/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]] |
-| Workflow of how PKS creates a k8s cluster   | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]               |
-| How airgap integration tests are enforced   | For each node, load specific iptable rules      |
-| Reference                                   | [[https://docs.pivotal.io/pivotalcf/2-3/customizing/troubleshooting-diagnostics.html][Link: PKS Troubleshoot]]                          |
+| Name                                        | Summary                                                          |
+|---------------------------------------------+------------------------------------------------------------------|
+| Log files in pks vms                        | =/var/vcap/sys/log=                                              |
+| How to run pks cli commands                 | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-pks-cli.md][run-pks-cli.md]]                                                   |
+| How to run bosh cli commands, like bosh ssh | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-bosh-cli.md][run-bosh-cli.md]]                                                  |
+| How to run kubectl command                  | [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/run-kubectl-in-pks.md][run-kubectl-in-pks.md]]                                            |
+| How PKS supports k8s master HA              | [[https://github.com/cloudfoundry-incubator/kubo-release#option-2-three-masters][GitHub: kubo-release]], [[https://github.com/cloudfoundry-incubator/cfcr-etcd-release/blob/60ce4836faa06a0de6781ec2ce1a0c34a4ea35f2/jobs/etcd/templates/bin/post-start.erb#L13-L19][GitHub: cfcr-etcd-release]]                  |
+| Workflow of how PKS creates a k8s cluster   | [[https://docs.pivotal.io/runtimes/pks/1-2/create-cluster.html][Link: Create a Kubernetes Cluster]]                                |
+| How airgap integration tests are enforced   | For each node, load specific iptable rules. [[https://github.com/dennyzhang/cheatsheet-pks-A4/blob/master/airgap-iptable.rules][airgap-iptable.rules]] |
+| Reference                                   | [[https://docs.pivotal.io/pivotalcf/2-3/customizing/troubleshooting-diagnostics.html][Link: PKS Troubleshoot]]                                           |
 
 ** Deployment with NSX-T + NAT
 [[https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4][https://raw.githubusercontent.com/dennyzhang/cheatsheet-pks-A4/master/pks-nsxt-nat.png]]
@@ -109,7 +111,7 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 | Monitoring and recovery of cluster VMs and processes | IaaS: VM lifecycle management  |
 | Embedded, hardened operating system                  | Linux release for OS hardening |
 | Log sink                                             | K8S Namespace multi-tenancy    |
-** PKS Challenges
+** PKS Challenges & Future Opportunities
 | Name                            | Summary                                                                      |
 |---------------------------------+------------------------------------------------------------------------------|
 | Faster for typical use cases    | Create k8s clusters, resize k8s cluster, create pods, etc                    |
@@ -158,13 +160,13 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 - Get process list in pks 1.2.0: ssh to k8s master vm, then =sudo monit summary=
 | Name                        | Summary |
 |-----------------------------+---------|
-| =blackbox= syslog           | 530 MB  |
-| =kube-apiserver=            | 520 MB  |
 | =etcd=                      | 120 MB  |
-| =fluentd=                   | 100 MB  |
+| =kube-apiserver=            | 520 MB  |
 | =kube-controller-manager=   | 100 MB  |
-| =ncp=                       | 70 MB   |
 | =kube-scheduler=            | 35 MB   |
+| =blackbox= syslog           | 530 MB  |
+| =fluentd=                   | 100 MB  |
+| =ncp=                       | 70 MB   |
 | =bosh-dns=                  | 19 MB   |
 | =bosh-agent=                | 15 MB   |
 | =bosh-dns-nameserverconfig= | 5 MB    |
@@ -173,14 +175,14 @@ File me [[https://github.com/DennyZhang/cheatsheet-pks-A4/issues][Issues]] or st
 - Get process list  in pks 1.2.0: ssh to the k8s worker vm, then =sudo monit summary=
 | Name                            | Summary |
 |---------------------------------+---------|
-| =fluentd=                       | 180 MB  |
+| =kube-proxy=                    | 30 MB   |
 | =kubelet=                       | 100 MB  |
-| =cadvisor=                      | 85 MB   |
 | =docker=                        | 70 MB   |
+| =fluentd=                       | 180 MB  |
+| =cadvisor=                      | 85 MB   |
 | =blackbox= syslog               | 60 MB   |
 | =metrics-server=                | 36 MB   |
 | =ovs-vswitchd= open vSwitch     | 35 MB   |
-| =kube-proxy=                    | 30 MB   |
 | =bosh-dns=                      | 20 MB   |
 | =bosh-agent=                    | 18 MB   |
 | =bosh-dns-health=               | 7 MB    |
@@ -223,8 +225,8 @@ https://docs.pivotal.io/runtimes/pks/1-2/index.html
 
 License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_license.txt][MIT License]].
 #+BEGIN_HTML
-<a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
-<a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+<a href="https://cheatsheet.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
+<a href="https://cheatsheet.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
 
 <a href="https://www.linkedin.com/in/dennyzhang001"><img align="bottom" src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
 <a href="https://github.com/dennyzhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
@@ -244,7 +246,7 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+LATEX_HEADER: \rhead{Updated: \today}
 #+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
 #+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet-pks-A4}{GitHub: https://github.com/dennyzhang/cheatsheet-pks-A4}}
-#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4}}
+#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-pks-A4}}
 #+AUTHOR: Denny Zhang
 #+EMAIL:  denny@dennyzhang.com
 #+TAGS: noexport(n)
@@ -256,7 +258,7 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+LINK_UP:
 #+LINK_HOME:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* DONE pks errands
+* DONE pks errands                                                 :noexport:
   CLOSED: [2019-02-03 Sun 22:32]
 ** pks errand
 #+BEGIN_EXAMPLE
@@ -12745,6 +12747,9 @@ Empty set (0.00 sec)
 | telemetry-agent-* (need to move to pks-system) |                 1 | kube-system | 1 per k8s cluster     | From telemetry feature                                                                       |
 | wavefront-proxy-*                              |                 4 | kube-system | 1 per k8s cluster     | From WF integration. In PKS 1.4, we will change one pod. Then add another 2 pods             |
 | cadvisor-* (future)                            |                 1 | pks-system  | 1 per k8s worker node | From vrops integration                                                                       |
+* DONE reload squid in nimbus env                                  :noexport:
+  CLOSED: [2019-03-06 Wed 16:50]
+sudo systemctl reload squid
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO pks scenario: upgrade cluster                               :noexport:
 Tile: jobs/upgrade-all-service-instances.yml
@@ -18469,9 +18474,6 @@ curl http://30.0.0.13:2525/imposters/8000
 /var/vcap/bosh/bin/bosh-agent -P ubuntu -C /var/vcap/bosh/agent.json
 * TODO How pks plans apply to k8s deployment                       :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* DONE reload squid in nimbus env                                  :noexport:
-  CLOSED: [2019-03-06 Wed 16:50]
-sudo systemctl reload squid
 * pks foundation                                                   :noexport:
 * k8s manifest yaml                                                :noexport:
 #+BEGIN_EXAMPLE
@@ -19784,3 +19786,4 @@ features:
 
 Succeeded
 #+END_EXAMPLE
+* TODO service network and deployment network                      :noexport:
